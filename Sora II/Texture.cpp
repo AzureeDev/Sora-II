@@ -11,6 +11,8 @@ Lilac::Texture::~Texture()
 {
 	SDL_DestroyTexture(this->asset);
 	this->asset = nullptr;
+
+	SDL_Log("Texture %s destroyed.", this->asset_name.c_str());
 }
 
 int Lilac::Texture::load()
