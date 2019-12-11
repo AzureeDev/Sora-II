@@ -14,6 +14,18 @@ void Lilac::SceneManager::create_scene(const SceneData data)
 	data.scene->init();
 }
 
+void Lilac::SceneManager::delete_scene(const std::string scene_name)
+{
+	for (size_t i = 0; i < this->active_scenes.size(); ++i)
+	{
+		if (this->active_scenes[i].scene_name == scene_name)
+		{
+			this->active_scenes.erase(this->active_scenes.begin() + i);
+			break;
+		}
+	}
+}
+
 bool Lilac::SceneManager::exists(const std::string scene_name)
 {
 	for (auto& scene : this->active_scenes)
@@ -27,23 +39,13 @@ bool Lilac::SceneManager::exists(const std::string scene_name)
 	return false;
 }
 
-std::shared_ptr<Lilac::Scene> Lilac::SceneManager::get_scene(const std::string scene_name)
-{
-	for (auto& scene : this->active_scenes)
-	{
-		if (scene.scene_name == scene_name)
-		{
-			return scene.scene;
-		}
-	}
-
-	return nullptr;
-}
-
 void Lilac::SceneManager::update(const float dt)
 {
 	for (const auto& scene : this->active_scenes)
 	{
-		scene.scene->update(dt);
+		if (!scene.scene->paused())
+		{
+			scene.scene->update(dt);
+		}
 	}
 }

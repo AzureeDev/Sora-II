@@ -1,5 +1,9 @@
 #include "Scene.h"
 
+Lilac::Scene::~Scene()
+{
+}
+
 void Lilac::Scene::init()
 {
 }

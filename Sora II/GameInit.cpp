@@ -1,4 +1,5 @@
 #include "GameInit.h"
+#include "Globals.h"
 
 void Lilac::Scenes::GameInit::init()
 {
