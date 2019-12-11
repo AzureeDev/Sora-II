@@ -1,11 +1,13 @@
 #include "Engine.h"
 #include "Globals.h"
 #include "Texture.h"
+#include "GameInit.h"
 
 Lilac::Engine::Engine()
 {
 	this->init_globals();
 	this->init_base_assets();
+	this->init_entry_scene();
 	this->update();
 	this->cleanup();
 }
@@ -14,6 +16,7 @@ void Lilac::Engine::init_globals()
 {
 	Globals::engine = std::make_unique<Lilac::Engine>(*this);
 	Globals::assets = std::make_unique<Lilac::AssetManager>(AssetManager());
+	Globals::scenes = std::make_unique<Lilac::SceneManager>(SceneManager());
 }
 
 void Lilac::Engine::init_base_assets()
@@ -21,8 +24,18 @@ void Lilac::Engine::init_base_assets()
 	Globals::assets->load_texture("ui_cursor_normal", "assets/guis/ui_cursor_normal");
 }
 
+void Lilac::Engine::init_entry_scene()
+{
+	Globals::scenes->create_scene({ "GameInit", std::shared_ptr<Lilac::Scenes::GameInit>(new Lilac::Scenes::GameInit()) });
+}
+
 void Lilac::Engine::update()
 {
+	// Define variables to get a solid deltatime
+	Uint64 NOW = SDL_GetPerformanceCounter();
+	Uint64 LAST = 0;
+	float deltaTime = 0;
+
 	while (this->running)
 	{
 		SDL_Event event;
@@ -36,7 +49,12 @@ void Lilac::Engine::update()
 			}
 		}
 
+		LAST = NOW;
+		NOW = SDL_GetPerformanceCounter();
+		deltaTime = ((NOW - LAST) / (float)SDL_GetPerformanceFrequency());
+
 		SDL_RenderClear(this->sdl_instance.get_renderer());
+		Globals::scenes->update(deltaTime);
 		SDL_RenderPresent(this->sdl_instance.get_renderer());
 	}
 }

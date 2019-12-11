@@ -17,6 +17,18 @@
     <ClCompile Include="AssetManager.cpp">
       <Filter>Lilac\Managers</Filter>
     </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Lilac\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="UIElement.cpp">
+      <Filter>Lilac\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Lilac\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="GameInit.cpp">
+      <Filter>Lilac\Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Lilac">
@@ -36,6 +48,12 @@
     </Filter>
     <Filter Include="Lilac\Utils">
       <UniqueIdentifier>{9e4c5887-dd48-475e-bc26-b4f249868870}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lilac\UI">
+      <UniqueIdentifier>{0ce48605-6347-4ff4-86ad-523cf3101c74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lilac\Scenes">
+      <UniqueIdentifier>{c3815103-0d93-45ba-a0de-42f2461246c8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -59,6 +77,18 @@
     </ClInclude>
     <ClInclude Include="AssetManager.h">
       <Filter>Lilac\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Lilac\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="UIElement.h">
+      <Filter>Lilac\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Lilac\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="GameInit.h">
+      <Filter>Lilac\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
