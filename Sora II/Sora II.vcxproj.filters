@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Engine.cpp">
+      <Filter>Lilac\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="SDL.cpp">
+      <Filter>Lilac\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Asset.cpp">
+      <Filter>Lilac\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="Globals.cpp" />
+    <ClCompile Include="Texture.cpp">
+      <Filter>Lilac\Assets</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Lilac">
+      <UniqueIdentifier>{ddf59fb7-6ddd-4b19-93a4-24ad0c67b8ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lilac\Engine">
+      <UniqueIdentifier>{42e2c836-2093-4cc6-a6af-f58707518474}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lilac\Assets">
+      <UniqueIdentifier>{1dacf9c7-a696-4c67-bff1-dcacfdd02d4c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Engine.h">
+      <Filter>Lilac\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="SDL.h">
+      <Filter>Lilac\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Asset.h">
+      <Filter>Lilac\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="Globals.h" />
+    <ClInclude Include="Texture.h">
+      <Filter>Lilac\Assets</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
