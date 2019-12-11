@@ -8,9 +8,6 @@
     <ClCompile Include="SDL.cpp">
       <Filter>Lilac\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Asset.cpp">
-      <Filter>Lilac\Assets</Filter>
-    </ClCompile>
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="Texture.cpp">
       <Filter>Lilac\Assets</Filter>

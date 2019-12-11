@@ -52,3 +52,8 @@ int Lilac::Texture::load()
 
 	return 1;
 }
+
+const Lilac::TextureData& Lilac::Texture::data()
+{
+	return this->texture_data;
+}

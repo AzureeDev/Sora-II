@@ -19,11 +19,12 @@ namespace Lilac
 	{
 	private:
 		// Texture data
-		TextureData texture_data;
+		Lilac::TextureData texture_data;
 
 	public:
 		Texture(std::string texturePath);
 		virtual ~Texture();
 		virtual int load();
+		const Lilac::TextureData& data();
 	};
 }
