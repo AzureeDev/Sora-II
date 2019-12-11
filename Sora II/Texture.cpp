@@ -15,6 +15,7 @@ Lilac::Texture::~Texture()
 	SDL_Log("Texture %s destroyed.", this->asset_name.c_str());
 }
 
+/* Load the texture. Returns 1 on success, 0 on failure. */
 int Lilac::Texture::load()
 {
 	SDL_Surface* textureSurface = IMG_Load(this->asset_path.c_str());
@@ -47,13 +48,14 @@ int Lilac::Texture::load()
 	else
 	{
 		SDL_Log("Lilac::Texture::load() - Error creating surface %s : %s", this->asset_path.c_str(), IMG_GetError());
+		SDL_FreeSurface(textureSurface);
 		return 0;
 	}
 
 	return 1;
 }
 
-const Lilac::TextureData& Lilac::Texture::data()
+const TextureData& Lilac::Texture::data()
 {
 	return this->texture_data;
 }

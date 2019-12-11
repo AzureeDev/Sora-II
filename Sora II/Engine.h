@@ -17,6 +17,7 @@ namespace Lilac
 
 	private:
 		void init_globals();
+		void init_base_assets();
 		void update();
 		void cleanup();
 		

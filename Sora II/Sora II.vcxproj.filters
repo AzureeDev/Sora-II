@@ -8,9 +8,14 @@
     <ClCompile Include="SDL.cpp">
       <Filter>Lilac\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="Globals.cpp" />
     <ClCompile Include="Texture.cpp">
       <Filter>Lilac\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="Globals.cpp">
+      <Filter>Lilac\Globals</Filter>
+    </ClCompile>
+    <ClCompile Include="AssetManager.cpp">
+      <Filter>Lilac\Managers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -23,6 +28,15 @@
     <Filter Include="Lilac\Assets">
       <UniqueIdentifier>{1dacf9c7-a696-4c67-bff1-dcacfdd02d4c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Lilac\Managers">
+      <UniqueIdentifier>{c02d03aa-2d84-4e0e-b2b5-215fe63619b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lilac\Globals">
+      <UniqueIdentifier>{d2b9376f-7182-4b65-b7ff-812382f0727e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lilac\Utils">
+      <UniqueIdentifier>{9e4c5887-dd48-475e-bc26-b4f249868870}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine.h">
@@ -34,9 +48,17 @@
     <ClInclude Include="Asset.h">
       <Filter>Lilac\Assets</Filter>
     </ClInclude>
-    <ClInclude Include="Globals.h" />
     <ClInclude Include="Texture.h">
       <Filter>Lilac\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="Globals.h">
+      <Filter>Lilac\Globals</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>Lilac\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetManager.h">
+      <Filter>Lilac\Managers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

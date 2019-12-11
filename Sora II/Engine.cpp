@@ -5,6 +5,7 @@
 Lilac::Engine::Engine()
 {
 	this->init_globals();
+	this->init_base_assets();
 	this->update();
 	this->cleanup();
 }
@@ -12,6 +13,12 @@ Lilac::Engine::Engine()
 void Lilac::Engine::init_globals()
 {
 	Globals::engine = std::make_unique<Lilac::Engine>(*this);
+	Globals::assets = std::make_unique<Lilac::AssetManager>(AssetManager());
+}
+
+void Lilac::Engine::init_base_assets()
+{
+	Globals::assets->load_texture("ui_cursor_normal", "assets/guis/ui_cursor_normal");
 }
 
 void Lilac::Engine::update()
@@ -36,5 +43,6 @@ void Lilac::Engine::update()
 
 void Lilac::Engine::cleanup()
 {
+	Globals::assets->destroy();
 	this->sdl_instance.destroy();
 }

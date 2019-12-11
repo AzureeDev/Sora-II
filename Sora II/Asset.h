@@ -15,7 +15,7 @@ namespace Lilac
 	class Asset
 	{
 	protected:
-		AssetType asset;
+		AssetType asset = nullptr;
 		std::string asset_name = "";
 		std::string asset_path = "";
 		uint64_t asset_size = 0;
@@ -23,10 +23,16 @@ namespace Lilac
 	public:
 		Asset(std::string filepath); // Constructor, fill basic data
 		virtual ~Asset() {}; // Virtual destructor, unload the asset
+
+		const std::string& name() { return this->asset_name; }; // Asset name getter
+		const std::string& path() { return this->asset_path; }; // Asset path getter
+		const uint64_t size() { return this->asset_size; }; // Asset size getter
+
 		virtual int load() = 0; // [Pure Virtual] Returns 1 on success, 0 on failure
 		virtual AssetType get() { return this->asset; }; // Return the asset, whatever it is
 	};
 
+	/* Try first seeing if the asset exists, then fill the data in */
 	template<typename AssetType>
 	inline Lilac::Asset<AssetType>::Asset(std::string filepath)
 	{
