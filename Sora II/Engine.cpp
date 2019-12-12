@@ -1,6 +1,5 @@
 #include "Engine.h"
 #include "Globals.h"
-#include "Texture.h"
 #include "GameInit.h"
 
 Lilac::Engine::Engine()
@@ -21,7 +20,8 @@ void Lilac::Engine::init_globals()
 
 void Lilac::Engine::init_base_assets()
 {
-	Globals::assets->load_texture("ui_cursor_normal", "assets/guis/ui_cursor_normal");
+	/* Init cursor */
+	this->cursor = std::make_shared<Lilac::UI::Image>(Lilac::UI::Image("assets/guis/ui_cursor_normal"));
 }
 
 void Lilac::Engine::init_entry_scene()
@@ -43,6 +43,10 @@ void Lilac::Engine::update()
 		{
 			switch (event.type)
 			{
+			case SDL_EventType::SDL_MOUSEMOTION:
+				SDL_GetMouseState(&Globals::mousePositionX, &Globals::mousePositionY);
+				break;
+
 			case SDL_EventType::SDL_QUIT:
 				this->running = false;
 				break;
@@ -55,6 +59,9 @@ void Lilac::Engine::update()
 
 		SDL_RenderClear(this->sdl_instance.get_renderer());
 		Globals::scenes->update(deltaTime);
+
+		this->cursor->set_position({ Globals::mousePositionX, Globals::mousePositionY });
+		this->cursor->render();
 		SDL_RenderPresent(this->sdl_instance.get_renderer());
 	}
 }

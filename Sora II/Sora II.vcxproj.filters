@@ -29,6 +29,7 @@
     <ClCompile Include="GameInit.cpp">
       <Filter>Lilac\Scenes</Filter>
     </ClCompile>
+    <ClCompile Include="Image.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Lilac">
@@ -90,5 +91,6 @@
     <ClInclude Include="GameInit.h">
       <Filter>Lilac\Scenes</Filter>
     </ClInclude>
+    <ClInclude Include="Image.h" />
   </ItemGroup>
 </Project>

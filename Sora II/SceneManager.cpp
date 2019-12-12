@@ -9,9 +9,8 @@ void Lilac::SceneManager::create_scene(const SceneData data)
 		return;
 	}
 
-	this->active_scenes.push_back(data);
-
 	data.scene->init();
+	this->active_scenes.push_back(data);
 }
 
 void Lilac::SceneManager::delete_scene(const std::string scene_name)

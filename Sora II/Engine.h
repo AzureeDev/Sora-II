@@ -1,5 +1,6 @@
 #pragma once
 #include "SDL.h"
+#include "Image.h"
 
 namespace Lilac
 {
@@ -8,6 +9,7 @@ namespace Lilac
 		// Members
 	private:
 		Lilac::SDL sdl_instance;
+		std::shared_ptr<Lilac::UI::Image> cursor = nullptr;
 		bool running = true;
 		
 		// Methods

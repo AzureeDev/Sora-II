@@ -24,7 +24,9 @@ void Lilac::SDL::create_window()
 	this->window = SDL_CreateWindow("PROJECT SORA II", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, dm.w, dm.h, SDL_WINDOW_BORDERLESS);
 	this->renderer = SDL_CreateRenderer(this->window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
-	SDL_RenderSetLogicalSize(this->renderer, 1280, 720);
+	this->windowSize.x = dm.w;
+	this->windowSize.y = dm.h;
+
 	SDL_ShowCursor(false);
 }
 
