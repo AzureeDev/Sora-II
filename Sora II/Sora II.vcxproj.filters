@@ -29,7 +29,12 @@
     <ClCompile Include="GameInit.cpp">
       <Filter>Lilac\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="Image.cpp" />
+    <ClCompile Include="Image.cpp">
+      <Filter>Lilac\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Unit.cpp">
+      <Filter>Lilac\Units</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Lilac">
@@ -55,6 +60,9 @@
     </Filter>
     <Filter Include="Lilac\Scenes">
       <UniqueIdentifier>{c3815103-0d93-45ba-a0de-42f2461246c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lilac\Units">
+      <UniqueIdentifier>{4e225bac-4bda-4152-95ad-c55cef3e6a77}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -91,6 +99,11 @@
     <ClInclude Include="GameInit.h">
       <Filter>Lilac\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="Image.h" />
+    <ClInclude Include="Image.h">
+      <Filter>Lilac\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Unit.h">
+      <Filter>Lilac\Units</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

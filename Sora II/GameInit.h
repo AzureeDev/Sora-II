@@ -12,5 +12,6 @@ namespace Lilac::Scenes
 	public:
 		virtual void init();
 		virtual void update(const float dt);
+		virtual void render();
 	};
 }

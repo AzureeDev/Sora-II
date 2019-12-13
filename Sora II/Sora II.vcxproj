@@ -166,6 +166,7 @@
     <ClCompile Include="SDL.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="UIElement.cpp" />
+    <ClCompile Include="Unit.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Asset.h" />
@@ -179,6 +180,7 @@
     <ClInclude Include="SDL.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="UIElement.h" />
+    <ClInclude Include="Unit.h" />
     <ClInclude Include="Vector2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
