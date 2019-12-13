@@ -11,11 +11,6 @@ std::shared_ptr<Lilac::Texture> Lilac::UI::Image::texture()
 	return this->image_texture;
 }
 
-void Lilac::UI::Image::set_position(const Vector2i pos)
-{
-	this->element_position = pos;
-}
-
 void Lilac::UI::Image::rescale(SDL_Rect& rect)
 {
 	const Vector2i workspace_size = Globals::engine->sdl().workspace_size();

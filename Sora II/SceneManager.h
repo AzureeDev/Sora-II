@@ -22,6 +22,7 @@ namespace Lilac
 		template <typename T>
 		std::shared_ptr<T> get_scene(const std::string scene_name);	// Get a scene. Eg: Globals::scenes->get_scene<GameInit>("GameInit")->function()
 		void update(const float dt);	// Update, for the main loop
+		void render();	// Render, for the main loop
 	};
 
 	/* The fact I use a template here is to have polymorphism even though it's a container of basic scenes - We can get all functions from a designated class with this. */

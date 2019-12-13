@@ -11,10 +11,12 @@ namespace Lilac::UI
 		std::shared_ptr<Lilac::Texture> image_texture = nullptr;
 
 	public:
+		Image() {};
 		Image(std::string path);
 		std::shared_ptr<Lilac::Texture> texture();
-		void set_position(const Vector2i pos);
+		virtual void render();	
+
+	protected: 
 		void rescale(SDL_Rect& rect);
-		virtual void render();
 	};
 }

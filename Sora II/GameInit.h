@@ -7,7 +7,7 @@ namespace Lilac::Scenes
 	class GameInit : public Lilac::Scene
 	{
 	private:
-		std::vector<std::unique_ptr<Lilac::UI::Image>> textures = {};
+		Lilac::UI::Image texture;
 
 	public:
 		virtual void init();

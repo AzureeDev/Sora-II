@@ -13,6 +13,7 @@ namespace Lilac::UI
 		int element_height = 0;
 
 	public:
+		virtual void set_position(Vector2i pos);
 		virtual void render() = 0;
 	};
 }

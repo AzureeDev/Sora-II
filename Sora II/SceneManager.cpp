@@ -48,3 +48,11 @@ void Lilac::SceneManager::update(const float dt)
 		}
 	}
 }
+
+void Lilac::SceneManager::render()
+{
+	for (const auto& scene : this->active_scenes)
+	{
+		scene.scene->render();
+	}
+}

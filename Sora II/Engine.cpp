@@ -59,7 +59,7 @@ void Lilac::Engine::update()
 
 		SDL_RenderClear(this->sdl_instance.get_renderer());
 		Globals::scenes->update(deltaTime);
-
+		Globals::scenes->render();
 		this->cursor->set_position({ Globals::mousePositionX, Globals::mousePositionY });
 		this->cursor->render();
 		SDL_RenderPresent(this->sdl_instance.get_renderer());
