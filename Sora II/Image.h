@@ -15,8 +15,5 @@ namespace Lilac::UI
 		Image(std::string path);
 		std::shared_ptr<Lilac::Texture> texture();
 		virtual void render();	
-
-	protected: 
-		void rescale(SDL_Rect& rect);
 	};
 }

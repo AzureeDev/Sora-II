@@ -1,13 +1,13 @@
 #pragma once
 #include "Scene.h"
-#include "Image.h"
+#include "Unit.h"
 
 namespace Lilac::Scenes
 {
 	class GameInit : public Lilac::Scene
 	{
 	private:
-		Lilac::UI::Image texture;
+		Lilac::Units::Unit unit;
 
 	public:
 		virtual void init();

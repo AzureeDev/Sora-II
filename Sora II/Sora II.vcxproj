@@ -161,6 +161,7 @@
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Rendering.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SDL.cpp" />
@@ -175,12 +176,14 @@
     <ClInclude Include="GameInit.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="Image.h" />
+    <ClInclude Include="Rendering.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SDL.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="UIElement.h" />
     <ClInclude Include="Unit.h" />
+    <ClInclude Include="Utils.h" />
     <ClInclude Include="Vector2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

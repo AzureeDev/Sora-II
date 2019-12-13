@@ -26,7 +26,7 @@ void Lilac::Engine::init_base_assets()
 
 void Lilac::Engine::init_entry_scene()
 {
-	Globals::scenes->create_scene({ "GameInit", std::shared_ptr<Lilac::Scenes::GameInit>(new Lilac::Scenes::GameInit()) });
+	Globals::scenes->create_scene({ "GameInit", std::shared_ptr<Lilac::Scenes::GameInit>(new Lilac::Scenes::GameInit) });
 }
 
 void Lilac::Engine::update()

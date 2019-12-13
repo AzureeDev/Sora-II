@@ -1,5 +1,6 @@
 #pragma once
 #include <memory>
+#include "Utils.h"
 #include "Engine.h"
 #include "AssetManager.h"
 #include "SceneManager.h"
