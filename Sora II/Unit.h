@@ -15,6 +15,7 @@ namespace Lilac::Units
 		Vector2i unit_position = { 0, 0 };
 		int unit_width = 0;
 		int unit_height = 0;
+		Vector2i unit_custom_size = { 0, 0 };
 		int unit_sprite_size = 256;
 		int unit_animation_speed = 125;
 		int unit_animation_count = 0;

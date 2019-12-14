@@ -36,9 +36,20 @@ void Lilac::Units::Unit::render()
 {
 	SDL_Rect dest_rect = this->unit_texture->data().clip_rect;
 	SDL_Rect src_rect = { 0, 0, 0, 0 };
+
 	dest_rect.x = this->unit_position.x;
 	dest_rect.y = this->unit_position.y;
-	dest_rect.w = this->unit_sprite_size;
+
+	if (!this->unit_custom_size.zero())
+	{
+		dest_rect.w = this->unit_custom_size.x * this->unit_animation_count;
+		dest_rect.h = this->unit_custom_size.y;
+	}
+	else
+	{
+		dest_rect.w = this->unit_sprite_size;
+	}
+
 	dest_rect = Lilac::Utils::Rendering::rescale(dest_rect);
 
 	// Sprite animation

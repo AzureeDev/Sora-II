@@ -157,6 +157,7 @@
   <ItemGroup>
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="Font.cpp" />
     <ClCompile Include="GameInit.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="Image.cpp" />
@@ -165,6 +166,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SDL.cpp" />
+    <ClCompile Include="Text.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="UIElement.cpp" />
     <ClCompile Include="Unit.cpp" />
@@ -173,6 +175,7 @@
     <ClInclude Include="Asset.h" />
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="Font.h" />
     <ClInclude Include="GameInit.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="Image.h" />
@@ -180,6 +183,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SDL.h" />
+    <ClInclude Include="Text.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="UIElement.h" />
     <ClInclude Include="Unit.h" />

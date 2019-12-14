@@ -38,6 +38,12 @@
     <ClCompile Include="Rendering.cpp">
       <Filter>Lilac\Utils</Filter>
     </ClCompile>
+    <ClCompile Include="Font.cpp">
+      <Filter>Lilac\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="Text.cpp">
+      <Filter>Lilac\Assets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Lilac">
@@ -113,6 +119,12 @@
     </ClInclude>
     <ClInclude Include="Utils.h">
       <Filter>Lilac\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Font.h">
+      <Filter>Lilac\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="Text.h">
+      <Filter>Lilac\Assets</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

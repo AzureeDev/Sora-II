@@ -376,6 +376,12 @@ public:
 			x * cos(angle_radians) + y * sin(angle_radians),
 			-x * sin(angle_radians) + y * cos(angle_radians));
 	}
+
+	// Returns true if this vector is strictly equal to 0 for both x and y axis.
+	const bool zero() const
+	{
+		return this->x == static_cast<int>(0) && this->y == static_cast<int>(0);
+	}
 };
 
 // The following is hacked together from a bitbashing.io article about floating point comparisons.

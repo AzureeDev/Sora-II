@@ -36,6 +36,15 @@ namespace Lilac
 	template<typename AssetType>
 	inline Lilac::Asset<AssetType>::Asset(std::string filepath)
 	{
+		if (filepath == "TEXT_ASSET")
+		{
+			/* Text textures doesn't have file data since we create it ourselves. */
+			this->asset_name = "TEXT_ASSET";
+			this->asset_path = "";
+			this->asset_size = 0;
+			return;
+		}
+
 		try
 		{
 			if (std::filesystem::exists(std::filesystem::path(filepath)))
