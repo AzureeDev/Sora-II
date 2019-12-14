@@ -380,7 +380,7 @@ public:
 	// Returns true if this vector is strictly equal to 0 for both x and y axis.
 	const bool zero() const
 	{
-		return this->x == static_cast<int>(0) && this->y == static_cast<int>(0);
+		return static_cast<int>(this->x) == 0 && static_cast<int>(this->y) == 0;
 	}
 };
 
