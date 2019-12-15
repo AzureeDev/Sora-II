@@ -20,14 +20,14 @@ void Lilac::Scene::render()
 	}
 }
 
-std::shared_ptr<Lilac::UI::UIElement> Lilac::Scene::add_ui_element(std::shared_ptr<Lilac::UI::UIElement> element)
+Lilac::UI::Image* Lilac::Scene::create_image(Lilac::UI::Image element)
 {
-	this->scene_ui_elements.push_back(std::move(element));
-	return this->scene_ui_elements.back();
+	this->scene_ui_elements.push_back(std::make_shared<Lilac::UI::Image>(element));
+	return dynamic_cast<Lilac::UI::Image*>(this->scene_ui_elements.back().get());
 }
 
-std::shared_ptr<Lilac::UI::Image> Lilac::Scene::add_image(std::shared_ptr<Lilac::UI::Image> element)
+Lilac::UI::UIText* Lilac::Scene::create_text(Lilac::UI::UIText element)
 {
-	this->scene_ui_elements.push_back(element);
-	return element;
+	this->scene_ui_elements.push_back(std::make_shared<Lilac::UI::UIText>(element));
+	return dynamic_cast<Lilac::UI::UIText*>(this->scene_ui_elements.back().get());
 }

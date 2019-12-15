@@ -5,8 +5,8 @@
 #include <memory>
 #include <vector>
 #include <string>
-#include "UIElement.h"
 #include "Image.h"
+#include "UIText.h"
 
 namespace Lilac {
 	class Scene
@@ -25,7 +25,7 @@ namespace Lilac {
 		void resume() { this->scene_paused = false; }	// Setter to unpause
 
 	protected:
-		std::shared_ptr<Lilac::UI::UIElement> add_ui_element(std::shared_ptr<Lilac::UI::UIElement> element);
-		std::shared_ptr<Lilac::UI::Image> add_image(std::shared_ptr<Lilac::UI::Image> element);
+		Lilac::UI::Image* create_image(Lilac::UI::Image element);
+		Lilac::UI::UIText* create_text(Lilac::UI::UIText element);
 	};
 }

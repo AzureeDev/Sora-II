@@ -7,7 +7,6 @@ namespace Lilac::UI
 	class UIElement
 	{
 	protected:
-		std::string element_name;
 		Vector2i element_position = { 0, 0 };
 		int element_width = 0;
 		int element_height = 0;
@@ -15,7 +14,7 @@ namespace Lilac::UI
 	public:
 		virtual void set_position(Vector2i pos);
 		virtual Vector2i position() { return this->element_position; };
-		virtual void render() = 0;
+		virtual void render() {};
 	};
 }
 	
