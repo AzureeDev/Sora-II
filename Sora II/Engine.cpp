@@ -20,6 +20,7 @@ void Lilac::Engine::init_globals()
 	Globals::engine = std::make_unique<Lilac::Engine>(*this);
 	Globals::assets = std::make_unique<Lilac::AssetManager>(AssetManager());
 	Globals::scenes = std::make_unique<Lilac::SceneManager>(SceneManager());
+	Globals::lua = std::make_unique<Lilac::Lua>(Lua());
 }
 
 void Lilac::Engine::init_base_assets()
@@ -80,4 +81,5 @@ void Lilac::Engine::cleanup()
 {
 	Globals::assets->destroy();
 	this->sdl_instance.destroy();
+	lua_close(Globals::lua->state());
 }

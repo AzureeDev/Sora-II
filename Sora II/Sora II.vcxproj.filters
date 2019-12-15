@@ -47,6 +47,12 @@
     <ClCompile Include="UIText.cpp">
       <Filter>Lilac\UI</Filter>
     </ClCompile>
+    <ClCompile Include="Lua.cpp">
+      <Filter>Lilac\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaWrapper.cpp">
+      <Filter>Lilac\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Lilac">
@@ -75,6 +81,9 @@
     </Filter>
     <Filter Include="Lilac\Units">
       <UniqueIdentifier>{4e225bac-4bda-4152-95ad-c55cef3e6a77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lilac\ThirdParty">
+      <UniqueIdentifier>{0bb7b8dd-661f-4445-bd05-7478f06b3f30}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +142,12 @@
       <Filter>Lilac\UI</Filter>
     </ClInclude>
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Lua.h">
+      <Filter>Lilac\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaWrapper.h">
+      <Filter>Lilac\Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="SoraII.rc" />
