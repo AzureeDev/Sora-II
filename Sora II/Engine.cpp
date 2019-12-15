@@ -4,6 +4,10 @@
 
 Lilac::Engine::Engine()
 {
+}
+
+void Lilac::Engine::init_engine()
+{
 	this->init_globals();
 	this->init_base_assets();
 	this->init_entry_scene();

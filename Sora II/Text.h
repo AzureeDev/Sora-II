@@ -23,7 +23,7 @@ namespace Lilac
 		TTF_Font* asset_font = nullptr;
 		SDL_Color asset_text_color = { 255, 255, 255, 255 };
 		TextData asset_text_data;
-		int asset_text_max_width = 1920;
+		int asset_text_max_width = 0;
 
 		virtual int load();
 		void create_text(SDL_Surface* text_surface);

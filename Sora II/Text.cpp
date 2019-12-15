@@ -13,6 +13,11 @@ Lilac::Text::Text(std::string text, SDL_Color text_color, int max_width, std::sh
 		font = Globals::assets->get_font("escom24");
 	}
 
+	if (max_width == 0)
+	{
+		this->asset_text_max_width = Globals::engine->sdl().workspace_size().x;
+	}
+
 	this->asset_font = font->get();
 	
 	this->load();

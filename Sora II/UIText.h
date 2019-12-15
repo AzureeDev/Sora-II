@@ -12,7 +12,7 @@ namespace Lilac::UI
 
 	public:
 		UIText() {};
-		UIText(std::string text, SDL_Color color = { 255, 255, 255, 255 }, int max_width = 1920, std::shared_ptr<Lilac::Font> font = nullptr);
+		UIText(std::string text, SDL_Color color = { 255, 255, 255, 255 }, int max_width = 0, std::shared_ptr<Lilac::Font> font = nullptr);
 		void render();
 	};
 }

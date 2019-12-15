@@ -13,10 +13,13 @@ std::shared_ptr<Lilac::Texture> Lilac::UI::Image::texture()
 
 void Lilac::UI::Image::render()
 {
-	SDL_Rect dest_rect = this->image_texture->data().clip_rect;
-	dest_rect.x = this->element_position.x;
-	dest_rect.y = this->element_position.y;
+	if (this->image_texture != nullptr)
+	{
+		SDL_Rect dest_rect = this->image_texture->data().clip_rect;
+		dest_rect.x = this->element_position.x;
+		dest_rect.y = this->element_position.y;
 
-	dest_rect = Lilac::Utils::Rendering::rescale(dest_rect);
-	SDL_RenderCopy(Globals::engine->sdl().get_renderer(), this->image_texture->get(), NULL, &dest_rect);
+		dest_rect = Lilac::Utils::Rendering::rescale(dest_rect);
+		SDL_RenderCopy(Globals::engine->sdl().get_renderer(), this->image_texture->get(), NULL, &dest_rect);
+	}
 }

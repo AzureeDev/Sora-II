@@ -44,6 +44,9 @@
     <ClCompile Include="Text.cpp">
       <Filter>Lilac\Assets</Filter>
     </ClCompile>
+    <ClCompile Include="UIText.cpp">
+      <Filter>Lilac\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Lilac">
@@ -126,5 +129,15 @@
     <ClInclude Include="Text.h">
       <Filter>Lilac\Assets</Filter>
     </ClInclude>
+    <ClInclude Include="UIText.h">
+      <Filter>Lilac\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SoraII.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="X:\sora_ii\img_assets\game_icon.ico" />
   </ItemGroup>
 </Project>

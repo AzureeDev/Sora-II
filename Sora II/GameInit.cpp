@@ -13,7 +13,7 @@ void Lilac::Scenes::GameInit::init()
 	this->unit = Lilac::Units::Unit("sora", "assets/units/sora/sora_std");
 	this->unit.set_position({ 820, 600 });
 
-	this->text = Lilac::UI::UIText("Hello world");
+	this->text = Lilac::UI::UIText("Hello world", { 255, 150, 150, 255 }, 0, Globals::assets->get_font("escom48"));
 }
 
 /*
