@@ -7,6 +7,12 @@ Lilac::Text::Text(std::string text, SDL_Color text_color, int max_width, std::sh
 	this->asset_current_text = text;
 	this->asset_text_color = text_color;
 	this->asset_text_max_width = max_width;
+
+	if (font == nullptr)
+	{
+		font = Globals::assets->get_font("escom24");
+	}
+
 	this->asset_font = font->get();
 	
 	this->load();
@@ -72,6 +78,7 @@ void Lilac::Text::destroy()
 {
 	if (this->asset != nullptr)
 	{
+		SDL_Log("Text ' %s ' destroyed", this->asset_current_text.c_str());
 		SDL_DestroyTexture(this->asset);
 		this->asset = nullptr;
 	}

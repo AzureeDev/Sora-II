@@ -29,7 +29,7 @@ namespace Lilac
 		void create_text(SDL_Surface* text_surface);
 
 	public:
-		Text(std::string text, SDL_Color text_color, int max_width, std::shared_ptr<Lilac::Font> font);
+		Text(std::string text, SDL_Color text_color, int max_width, std::shared_ptr<Lilac::Font> font = nullptr);
 		virtual ~Text();
 		TextData& data();
 		void set_text(std::string text);

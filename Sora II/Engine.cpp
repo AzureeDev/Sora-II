@@ -22,6 +22,12 @@ void Lilac::Engine::init_base_assets()
 {
 	/* Init cursor */
 	this->cursor = std::make_shared<Lilac::UI::Image>(Lilac::UI::Image("assets/guis/ui_cursor_normal"));
+
+	/* Load fonts */
+	Globals::assets->load_font("escom16", "assets/fonts/escom.ttf", 16);
+	Globals::assets->load_font("escom24", "assets/fonts/escom.ttf", 24);
+	Globals::assets->load_font("escom32", "assets/fonts/escom.ttf", 32);
+	Globals::assets->load_font("escom48", "assets/fonts/escom.ttf", 48);
 }
 
 void Lilac::Engine::init_entry_scene()

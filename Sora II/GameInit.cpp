@@ -12,6 +12,8 @@ void Lilac::Scenes::GameInit::init()
 
 	this->unit = Lilac::Units::Unit("sora", "assets/units/sora/sora_std");
 	this->unit.set_position({ 820, 600 });
+
+	this->text = Lilac::UI::UIText("Hello world");
 }
 
 /*
@@ -34,4 +36,5 @@ void Lilac::Scenes::GameInit::update(const float dt)
 void Lilac::Scenes::GameInit::render()
 {
 	this->unit.render();
+	this->text.render();
 }

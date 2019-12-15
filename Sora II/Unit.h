@@ -15,7 +15,7 @@ namespace Lilac::Units
 		Vector2i unit_position = { 0, 0 };
 		int unit_width = 0;
 		int unit_height = 0;
-		Vector2i unit_custom_size = { 0, 0 };
+		int unit_scale_multiplier = 1;
 		int unit_sprite_size = 256;
 		int unit_animation_speed = 125;
 		int unit_animation_count = 0;
@@ -27,6 +27,7 @@ namespace Lilac::Units
 		virtual ~Unit();
 		virtual void set_position(const Vector2i pos);
 		void set_sprite_size(unsigned sprite_size);
+		void set_scale_multiplier(int scale_multiplier);
 		const Vector2i position() { return this->unit_position; };
 		const int sprite_size() { return this->unit_sprite_size; };
 		virtual void render();

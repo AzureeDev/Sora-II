@@ -1,6 +1,7 @@
 #pragma once
 #include "Scene.h"
 #include "Unit.h"
+#include "UIText.h"
 
 namespace Lilac::Scenes
 {
@@ -8,6 +9,7 @@ namespace Lilac::Scenes
 	{
 	private:
 		Lilac::Units::Unit unit;
+		Lilac::UI::UIText text;
 
 	public:
 		virtual void init();

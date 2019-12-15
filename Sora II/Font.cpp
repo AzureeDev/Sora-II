@@ -12,6 +12,9 @@ Lilac::Font::~Font()
 	if (this->asset != nullptr)
 	{
 		TTF_CloseFont(this->asset);
+		this->asset = nullptr;
+
+		SDL_Log("Font %s destroyed.", this->asset_name.c_str());
 	}
 }
 

@@ -27,9 +27,12 @@ void Lilac::Units::Unit::set_position(const Vector2i pos)
 void Lilac::Units::Unit::set_sprite_size(unsigned sprite_size)
 {
 	// Fallback to default value if the sprite size is too high
-	sprite_size = sprite_size > 2048 ? 256 : sprite_size;
+	this->unit_sprite_size = sprite_size > 2048 ? 256 : sprite_size;;
+}
 
-	this->unit_sprite_size = sprite_size;
+void Lilac::Units::Unit::set_scale_multiplier(int scale_multiplier)
+{
+	this->unit_scale_multiplier = scale_multiplier < 1 ? 1 : scale_multiplier;
 }
 
 void Lilac::Units::Unit::render()
@@ -39,17 +42,7 @@ void Lilac::Units::Unit::render()
 
 	dest_rect.x = this->unit_position.x;
 	dest_rect.y = this->unit_position.y;
-
-	if (!this->unit_custom_size.zero())
-	{
-		dest_rect.w = this->unit_custom_size.x * this->unit_animation_count;
-		dest_rect.h = this->unit_custom_size.y;
-	}
-	else
-	{
-		dest_rect.w = this->unit_sprite_size;
-	}
-
+	dest_rect.w = this->unit_sprite_size;
 	dest_rect = Lilac::Utils::Rendering::rescale(dest_rect);
 
 	// Sprite animation
@@ -60,6 +53,9 @@ void Lilac::Units::Unit::render()
 		this->unit_current_sprite_id = (ticks / this->unit_animation_speed) % this->unit_animation_count;
 		src_rect = { this->unit_sprite_size * this->unit_current_sprite_id, 0, this->unit_sprite_size, this->unit_sprite_size };
 	}
+
+	dest_rect.w *= this->unit_scale_multiplier;
+	dest_rect.h *= this->unit_scale_multiplier;
 
 	SDL_RenderCopy(Globals::engine->sdl().get_renderer(), this->unit_texture->get(), &src_rect, &dest_rect);
 }
