@@ -15,11 +15,33 @@ Lilac::UI::Image::Image(std::string path)
 	}
 
 	this->image_texture = Globals::assets->load_texture("UI::IMAGE_" + path, path);
+
+	this->element_width = this->image_texture->data().w;
+	this->element_height = this->image_texture->data().h;
 }
 
 std::shared_ptr<Lilac::Texture> Lilac::UI::Image::texture()
 {
 	return this->image_texture;
+}
+
+void Lilac::UI::Image::set_color(const SDL_Color color)
+{
+	this->image_color.r = color.r;
+	this->image_color.g = color.g;
+	this->image_color.b = color.b;
+}
+
+void Lilac::UI::Image::set_alpha(const Uint8 alpha)
+{
+	this->image_color.a = alpha;
+}
+
+void Lilac::UI::Image::set_scroll(const bool state, const TextureScroll scroll_direction, const float speed)
+{
+	this->scrolling = state;
+	this->scroll_state = scroll_direction;
+	this->scroll_speed = speed;
 }
 
 void Lilac::UI::Image::render()
@@ -31,6 +53,47 @@ void Lilac::UI::Image::render()
 		dest_rect.y = this->element_position.y;
 
 		dest_rect = Lilac::Utils::Rendering::rescale(dest_rect);
+
+		SDL_SetTextureBlendMode(this->image_texture->get(), SDL_BLENDMODE_BLEND);
+		SDL_SetTextureColorMod(this->image_texture->get(), this->image_color.r, this->image_color.g, this->image_color.b);
+		SDL_SetTextureAlphaMod(this->image_texture->get(), this->image_color.a);
+
+		if (this->scrolling)
+		{
+			if (this->scroll_state == TextureScroll::ToLeft)
+			{
+				this->scroll_offset -= (1 * this->scroll_speed);
+
+				if (this->scroll_offset < -Globals::engine->sdl().workspace_size().x)
+				{
+					this->scroll_offset = 0;
+				}
+
+				const SDL_Rect r_scrollable_texture = { this->scroll_offset, this->position().y, this->element_width, this->element_height };
+				const SDL_Rect r_scrollable_texture2 = { this->scroll_offset + Globals::engine->sdl().workspace_size().x, this->position().y, this->element_width, this->element_height };
+
+				SDL_RenderCopy(Globals::engine->sdl().get_renderer(), this->image_texture->get(), NULL, &r_scrollable_texture);
+				SDL_RenderCopy(Globals::engine->sdl().get_renderer(), this->image_texture->get(), NULL, &r_scrollable_texture2);
+			}
+			else if (this->scroll_state == TextureScroll::ToRight)
+			{
+				this->scroll_offset += (1 * this->scroll_speed);
+
+				if (this->scroll_offset > Globals::engine->sdl().workspace_size().x)
+				{
+					this->scroll_offset = 0;
+				}
+
+				const SDL_Rect r_scrollable_texture = { this->scroll_offset, this->position().y, this->element_width, this->element_height };
+				const SDL_Rect r_scrollable_texture2 = { this->scroll_offset - Globals::engine->sdl().workspace_size().x, this->position().y, this->element_width, this->element_height };
+
+				SDL_RenderCopy(Globals::engine->sdl().get_renderer(), this->image_texture->get() , NULL, &r_scrollable_texture);
+				SDL_RenderCopy(Globals::engine->sdl().get_renderer(), this->image_texture->get(), NULL, &r_scrollable_texture2);
+			}
+
+			return;
+		}
+
 		SDL_RenderCopy(Globals::engine->sdl().get_renderer(), this->image_texture->get(), NULL, &dest_rect);
 	}
 }

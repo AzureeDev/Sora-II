@@ -23,6 +23,7 @@ namespace Lilac
 	private:
 		void init_globals();
 		void init_base_assets();
+		void init_lua();
 		void init_entry_scene();
 		void update();
 		void cleanup();

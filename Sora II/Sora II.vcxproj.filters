@@ -59,6 +59,9 @@
     <ClCompile Include="Button.cpp">
       <Filter>Lilac\UI</Filter>
     </ClCompile>
+    <ClCompile Include="Lua.cpp">
+      <Filter>Lilac\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Lilac">
@@ -156,6 +159,9 @@
     </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>Lilac\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Lua.h">
+      <Filter>Lilac\Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
