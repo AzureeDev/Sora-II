@@ -16,8 +16,11 @@ namespace Lilac
 		std::vector<SceneData> active_scenes = {};
 
 	public:
+		// SceneData: { string: scene_name, shared_ptr: scene }
 		void create_scene(const SceneData data);			// Create a new scene
 		void delete_scene(const std::string scene_name);	// Delete a existing scene and removes it from the container
+		// SceneData: { string: scene_name, shared_ptr: scene }
+		void swap_scene(const std::string scene_name_to_delete, SceneData new_scene_data); // Combine create & delete scene in one function
 		bool exists(const std::string scene_name);			// Boolean if a scene exists or not by scene name
 		template <typename T>
 		std::shared_ptr<T> get_scene(const std::string scene_name);	// Get a scene. Eg: Globals::scenes->get_scene<GameInit>("GameInit")->function()

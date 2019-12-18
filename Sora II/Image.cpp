@@ -1,8 +1,19 @@
 #include "Image.h"
 #include "Globals.h"
+#include <filesystem>
 
 Lilac::UI::Image::Image(std::string path)
 {
+	// If pre-loaded, use this instead
+	for (auto& image : Globals::assets->all_textures())
+	{
+		if (image.id == std::filesystem::path(path).filename().generic_u8string())
+		{
+			this->image_texture = image.texture;
+			return;
+		}
+	}
+
 	this->image_texture = Globals::assets->load_texture("UI::IMAGE_" + path, path);
 }
 

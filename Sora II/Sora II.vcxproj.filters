@@ -51,6 +51,9 @@
     <ClCompile Include="TickTimer.cpp">
       <Filter>Lilac\Utils</Filter>
     </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>Lilac\Scenes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Lilac">
@@ -79,9 +82,6 @@
     </Filter>
     <Filter Include="Lilac\Units">
       <UniqueIdentifier>{4e225bac-4bda-4152-95ad-c55cef3e6a77}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Lilac\ThirdParty">
-      <UniqueIdentifier>{0bb7b8dd-661f-4445-bd05-7478f06b3f30}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -143,6 +143,9 @@
     <ClInclude Include="Button.h" />
     <ClInclude Include="TickTimer.h">
       <Filter>Lilac\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>Lilac\Scenes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

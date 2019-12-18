@@ -2,6 +2,7 @@
 
 Lilac::Scene::~Scene()
 {
+	this->scene_ui_elements.clear();
 }
 
 /*

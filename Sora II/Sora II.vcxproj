@@ -164,6 +164,7 @@
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="Rendering.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
@@ -184,6 +185,7 @@
     <ClInclude Include="GameInit.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="Image.h" />
+    <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Rendering.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Scene.h" />

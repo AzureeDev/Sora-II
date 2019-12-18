@@ -2,7 +2,7 @@
 #include "Globals.h"
 #include "GameInit.h"
 
-const int FPS_MAX = 60;
+const int FPS_MAX = 90;
 const int FPS_TICKS_PER_FRAME = 1000 / FPS_MAX;
 
 Lilac::Engine::Engine()

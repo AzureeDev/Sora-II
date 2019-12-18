@@ -63,6 +63,11 @@ FontPtr Lilac::AssetManager::get_font(const std::string id)
 	return nullptr;
 }
 
+std::vector<Lilac::AssetManager::TextureData>& Lilac::AssetManager::all_textures()
+{
+	return this->textures;
+}
+
 void Lilac::AssetManager::destroy()
 {
 	this->textures.clear();

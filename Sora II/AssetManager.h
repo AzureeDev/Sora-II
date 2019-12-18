@@ -11,7 +11,7 @@ namespace Lilac
 {
 	class AssetManager
 	{
-	private:
+	public:
 		struct TextureData {
 			std::string id = "";
 			TexturePtr texture = nullptr;
@@ -22,6 +22,7 @@ namespace Lilac
 			FontPtr font = nullptr;
 		};
 
+	private:
 		std::vector<TextureData> textures = {};
 		std::vector<FontData> fonts = {};
 
@@ -31,6 +32,7 @@ namespace Lilac
 		void unload_texture(const std::string id); // Destroy a single texture by id
 		FontPtr& load_font(const std::string id, const std::string font_path, const int font_size_pt); // Load a Font to the db
 		FontPtr get_font(const std::string id); // Retrieve a Font from the db
+		std::vector<Lilac::AssetManager::TextureData>& all_textures();
 		void destroy(); // Destroy all assets.
 	};
 }
