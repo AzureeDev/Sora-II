@@ -4,7 +4,6 @@
 #include "Engine.h"
 #include "AssetManager.h"
 #include "SceneManager.h"
-#include "Lua.h"
 
 struct Globals
 {
@@ -13,6 +12,5 @@ struct Globals
 	static std::unique_ptr<Lilac::Engine> engine;
 	static std::unique_ptr<Lilac::AssetManager> assets;
 	static std::unique_ptr<Lilac::SceneManager> scenes;
-	static std::unique_ptr<Lilac::Lua> lua;
 };
 

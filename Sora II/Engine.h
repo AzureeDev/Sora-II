@@ -1,7 +1,7 @@
 #pragma once
 #include "SDL.h"
 #include "Image.h"
-#include "lua.hpp"
+#include "TickTimer.h"
 
 namespace Lilac
 {
@@ -12,6 +12,7 @@ namespace Lilac
 		Lilac::SDL sdl_instance;
 		std::shared_ptr<Lilac::UI::Image> cursor = nullptr;
 		bool running = true;
+		Lilac::Utils::TickTimer cap_timer;
 		
 		// Methods
 	public:

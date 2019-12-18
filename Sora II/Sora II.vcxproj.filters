@@ -47,11 +47,9 @@
     <ClCompile Include="UIText.cpp">
       <Filter>Lilac\UI</Filter>
     </ClCompile>
-    <ClCompile Include="Lua.cpp">
-      <Filter>Lilac\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="LuaWrapper.cpp">
-      <Filter>Lilac\Engine</Filter>
+    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="TickTimer.cpp">
+      <Filter>Lilac\Utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -142,11 +140,9 @@
       <Filter>Lilac\UI</Filter>
     </ClInclude>
     <ClInclude Include="resource.h" />
-    <ClInclude Include="Lua.h">
-      <Filter>Lilac\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="LuaWrapper.h">
-      <Filter>Lilac\Engine</Filter>
+    <ClInclude Include="Button.h" />
+    <ClInclude Include="TickTimer.h">
+      <Filter>Lilac\Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
