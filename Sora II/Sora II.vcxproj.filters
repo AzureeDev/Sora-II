@@ -47,12 +47,17 @@
     <ClCompile Include="UIText.cpp">
       <Filter>Lilac\UI</Filter>
     </ClCompile>
-    <ClCompile Include="Button.cpp" />
     <ClCompile Include="TickTimer.cpp">
       <Filter>Lilac\Utils</Filter>
     </ClCompile>
     <ClCompile Include="MainMenu.cpp">
       <Filter>Lilac\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>Lilac\Units</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Lilac\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -140,12 +145,17 @@
       <Filter>Lilac\UI</Filter>
     </ClInclude>
     <ClInclude Include="resource.h" />
-    <ClInclude Include="Button.h" />
     <ClInclude Include="TickTimer.h">
       <Filter>Lilac\Utils</Filter>
     </ClInclude>
     <ClInclude Include="MainMenu.h">
       <Filter>Lilac\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h">
+      <Filter>Lilac\Units</Filter>
+    </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Lilac\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

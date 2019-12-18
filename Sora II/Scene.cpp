@@ -33,10 +33,19 @@ void Lilac::Scene::update(const float dt)
 */
 void Lilac::Scene::render()
 {
+	this->scene_world.render();
+
 	for (auto& ui_element : this->scene_ui_elements)
 	{
 		ui_element->render();
 	}
+}
+
+Lilac::World& Lilac::Scene::create_world(std::string world_identifier)
+{
+	this->scene_world = World(world_identifier);
+
+	return this->scene_world;
 }
 
 Lilac::UI::Image* Lilac::Scene::create_image(Lilac::UI::Image element)
