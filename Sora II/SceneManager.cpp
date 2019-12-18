@@ -48,6 +48,17 @@ bool Lilac::SceneManager::exists(const std::string scene_name)
 	return false;
 }
 
+void Lilac::SceneManager::event(SDL_Event& event)
+{
+	for (const auto& scene : this->active_scenes)
+	{
+		if (!scene.scene->paused())
+		{
+			scene.scene->event(event);
+		}
+	}
+}
+
 void Lilac::SceneManager::update(const float dt)
 {
 	for (const auto& scene : this->active_scenes)

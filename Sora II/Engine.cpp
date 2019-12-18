@@ -72,6 +72,8 @@ void Lilac::Engine::update()
 				this->running = false;
 				break;
 			}
+
+			Globals::scenes->event(event);
 		}
 
 		LAST = NOW;

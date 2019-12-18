@@ -24,6 +24,7 @@ namespace Lilac
 		bool exists(const std::string scene_name);			// Boolean if a scene exists or not by scene name
 		template <typename T>
 		std::shared_ptr<T> get_scene(const std::string scene_name);	// Get a scene. Eg: Globals::scenes->get_scene<GameInit>("GameInit")->function()
+		void event(SDL_Event& event); // Events
 		void update(const float dt);	// Update, for the main loop
 		void render();	// Render, for the main loop
 	};

@@ -20,6 +20,7 @@ namespace Lilac {
 	public:
 		virtual ~Scene();								// Destructor, put cleanups here
 		virtual void init();							// Executed on scene creation
+		virtual void event(SDL_Event& event);			// Event catcher
 		virtual void update(const float dt);			// Executed each frames, put logic in there, as well of inserting elements
 		virtual void render();							// Executed each frames AFTER logic
 		bool paused() { return this->scene_paused; }	// Boolean if the scene logic is paused

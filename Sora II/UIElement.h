@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <SDL_events.h>
 #include "Vector2.h"
 
 namespace Lilac::UI
@@ -14,6 +15,7 @@ namespace Lilac::UI
 	public:
 		virtual void set_position(Vector2i pos);
 		virtual Vector2i position() { return this->element_position; };
+		virtual void event(const SDL_Event& event);
 		virtual void render() {};
 	};
 }

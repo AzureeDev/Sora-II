@@ -15,6 +15,20 @@ void Lilac::Scene::init()
 }
 
 /*
+	event()
+	====================
+	Keyboard input, mouse clicks, all are handled and sent through here.
+	Paused scenes do not catch any events.
+*/
+void Lilac::Scene::event(SDL_Event& event)
+{
+	for (auto& ui_element : this->scene_ui_elements)
+	{
+		ui_element->event(event);
+	}
+}
+
+/*
 	update()
 	====================
 	Handle the logic here - executed each frame
