@@ -14,6 +14,8 @@ namespace Lilac::UI
 
 	public:
 		virtual void set_position(Vector2i pos);
+		virtual void set_x(int x);
+		virtual void set_y(int y);
 		virtual Vector2i position() { return this->element_position; };
 		virtual void event(const SDL_Event& event);
 		virtual void render() {};

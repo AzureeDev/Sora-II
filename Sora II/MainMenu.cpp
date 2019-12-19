@@ -52,10 +52,11 @@ void Lilac::Scenes::MainMenu::init_left_menu()
 	);
 
 	Button* exit_btn = this->create_button(Button("assets/guis/main_menu/exit_button"));
-	exit_btn->set_color(theme_secondary_color);
+	exit_btn->set_animation(Button::ButtonAnimation::RightSlide);
+	exit_btn->set_highlight_color(theme_secondary_color);
 	exit_btn->set_position(
 		{
-			20,
+			0,
 			Globals::engine->sdl().workspace_size().y - lilac_engine_label->text()->data().h - exit_btn->texture()->data().h - 32
 		}
 	);
