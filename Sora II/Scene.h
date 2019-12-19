@@ -8,6 +8,7 @@
 #include "World.h"
 #include "Image.h"
 #include "UIText.h"
+#include "Button.h"
 
 namespace Lilac {
 	class Scene
@@ -31,5 +32,6 @@ namespace Lilac {
 		Lilac::World& create_world(std::string world_identifier);
 		Lilac::UI::Image* create_image(Lilac::UI::Image element);
 		Lilac::UI::UIText* create_text(Lilac::UI::UIText element);
+		Lilac::UI::Button* create_button(Lilac::UI::Button element);
 	};
 }

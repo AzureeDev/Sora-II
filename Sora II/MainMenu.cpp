@@ -1,7 +1,7 @@
 #include "MainMenu.h"
 #include "Globals.h"
 
-using Lilac::UI::Image, Lilac::UI::UIText;
+using Lilac::UI::Image, Lilac::UI::UIText, Lilac::UI::Button;
 
 // base theme: { 0, 155, 255, 255 }
 // christmas theme: { 0, 155, 255, 255 } / { 255, 165, 165, 255 }
@@ -51,7 +51,7 @@ void Lilac::Scenes::MainMenu::init_left_menu()
 		}
 	);
 
-	Image* exit_btn = this->create_image(Image("assets/guis/main_menu/exit_button"));
+	Button* exit_btn = this->create_button(Button("assets/guis/main_menu/exit_button"));
 	exit_btn->set_color(theme_secondary_color);
 	exit_btn->set_position(
 		{
@@ -59,6 +59,7 @@ void Lilac::Scenes::MainMenu::init_left_menu()
 			Globals::engine->sdl().workspace_size().y - lilac_engine_label->text()->data().h - exit_btn->texture()->data().h - 32
 		}
 	);
+	exit_btn->set_callback([]() { Globals::engine->quit(); });
 }
 
 void Lilac::Scenes::MainMenu::update(const float dt)

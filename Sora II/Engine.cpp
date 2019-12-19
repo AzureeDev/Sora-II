@@ -19,9 +19,15 @@ void Lilac::Engine::init_engine()
 	this->cleanup();
 }
 
+void Lilac::Engine::quit()
+{
+	this->running = false;
+	SDL_Log("Quitting application...");
+}
+
 void Lilac::Engine::init_globals()
 {
-	Globals::engine = std::make_unique<Lilac::Engine>(*this);
+	Globals::engine = this;
 	Globals::lua = std::unique_ptr<Lilac::Lua>(new Lua);
 	Globals::assets = std::make_unique<Lilac::AssetManager>(AssetManager());
 	Globals::scenes = std::make_unique<Lilac::SceneManager>(SceneManager());

@@ -18,6 +18,7 @@ namespace Lilac
 	public:
 		Engine();
 		void init_engine();
+		void quit();
 		Lilac::SDL& sdl() { return this->sdl_instance; };
 
 	private:

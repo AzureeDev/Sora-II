@@ -10,7 +10,7 @@ struct Globals
 {
 	static int mousePositionX;
 	static int mousePositionY;
-	static std::unique_ptr<Lilac::Engine> engine;
+	static Lilac::Engine* engine;
 	static std::unique_ptr<Lilac::Lua> lua;
 	static std::unique_ptr<Lilac::AssetManager> assets;
 	static std::unique_ptr<Lilac::SceneManager> scenes;
