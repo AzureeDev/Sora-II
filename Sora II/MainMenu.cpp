@@ -24,12 +24,12 @@ void Lilac::Scenes::MainMenu::init_world()
 
 void Lilac::Scenes::MainMenu::init_top_bar()
 {
-	Image* top_bar = this->create_image(Image("assets/guis/main_menu/main_menu_top_bar"));
+	Image* top_bar = this->create_element<Image>(Image("assets/guis/main_menu/main_menu_top_bar"));
 	top_bar->set_scroll(true);
 	top_bar->set_color(theme_secondary_color);
 	top_bar->set_position({ 0, 32 });
 
-	UIText* top_bar_label = this->create_text(UIText("Main Menu", {255, 255, 255, 255}, 0, Globals::assets->get_font("escom48")));
+	UIText* top_bar_label = this->create_element<UIText>(UIText("Main Menu", {255, 255, 255, 255}, 0, Globals::assets->get_font("escom48")));
 	top_bar_label->set_position(
 		{
 			Globals::engine->sdl().workspace_size().x - top_bar_label->text()->data().w - 10,
@@ -40,10 +40,10 @@ void Lilac::Scenes::MainMenu::init_top_bar()
 
 void Lilac::Scenes::MainMenu::init_left_menu()
 {
-	Image* left_menu_bg = this->create_image(Image("assets/guis/main_menu/main_menu_left"));
+	Image* left_menu_bg = this->create_element<Image>(Image("assets/guis/main_menu/main_menu_left"));
 	left_menu_bg->set_color(theme_secondary_color);
 
-	UIText* lilac_engine_label = this->create_text(UIText("LilacEngine 2 | @Sora#7688"));
+	UIText* lilac_engine_label = this->create_element<UIText>(UIText("LilacEngine 2 | @Sora#7688"));
 	lilac_engine_label->set_position(
 		{
 			500 / 2 - (lilac_engine_label->text()->data().w / 2),
@@ -51,12 +51,12 @@ void Lilac::Scenes::MainMenu::init_left_menu()
 		}
 	);
 
-	Button* exit_btn = this->create_button(Button("assets/guis/main_menu/exit_button"));
+	Button* exit_btn = this->create_element<Button>(Button("assets/guis/main_menu/exit_button"));
 	exit_btn->set_animation(Button::ButtonAnimation::RightSlide);
 	exit_btn->set_highlight_color(theme_secondary_color);
 	exit_btn->set_position(
 		{
-			0,
+			5,
 			Globals::engine->sdl().workspace_size().y - lilac_engine_label->text()->data().h - exit_btn->texture()->data().h - 32
 		}
 	);

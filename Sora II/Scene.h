@@ -30,8 +30,15 @@ namespace Lilac {
 
 	protected:
 		Lilac::World& create_world(std::string world_identifier);
-		Lilac::UI::Image* create_image(Lilac::UI::Image element);
-		Lilac::UI::UIText* create_text(Lilac::UI::UIText element);
-		Lilac::UI::Button* create_button(Lilac::UI::Button element);
+
+		template<typename T>
+		T* create_element(T element);
+
 	};
+	template<typename T>
+	inline T* Scene::create_element(T element)
+	{
+		this->scene_ui_elements.push_back(std::make_shared<T>(element));
+		return dynamic_cast<T*>(this->scene_ui_elements.back().get());
+	}
 }

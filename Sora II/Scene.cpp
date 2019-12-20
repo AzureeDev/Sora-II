@@ -61,21 +61,3 @@ Lilac::World& Lilac::Scene::create_world(std::string world_identifier)
 
 	return this->scene_world;
 }
-
-Lilac::UI::Image* Lilac::Scene::create_image(Lilac::UI::Image element)
-{
-	this->scene_ui_elements.push_back(std::make_shared<Lilac::UI::Image>(element));
-	return dynamic_cast<Lilac::UI::Image*>(this->scene_ui_elements.back().get());
-}
-
-Lilac::UI::UIText* Lilac::Scene::create_text(Lilac::UI::UIText element)
-{
-	this->scene_ui_elements.push_back(std::make_shared<Lilac::UI::UIText>(element));
-	return dynamic_cast<Lilac::UI::UIText*>(this->scene_ui_elements.back().get());
-}
-
-Lilac::UI::Button* Lilac::Scene::create_button(Lilac::UI::Button element)
-{
-	this->scene_ui_elements.push_back(std::make_shared<Lilac::UI::Button>(element));
-	return dynamic_cast<Lilac::UI::Button*>(this->scene_ui_elements.back().get());
-}

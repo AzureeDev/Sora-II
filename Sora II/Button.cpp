@@ -5,6 +5,7 @@ Lilac::UI::Button::Button(std::string button_texture_path)
 {
 	this->button_texture = Globals::assets->load_texture("UI::BUTTON_" + button_texture_path, button_texture_path);
 	this->button_callback = [button_texture_path]() { SDL_Log("No valid callback for the button: %s", button_texture_path.c_str()); };
+	this->button_out_callback = []() {};
 }
 
 void Lilac::UI::Button::set_position(Vector2i pos)
@@ -19,11 +20,20 @@ bool Lilac::UI::Button::mouse_inside()
 {
 	bool inside = true;
 
+	int w = this->button_texture->data().w;
+	int h = this->button_texture->data().h;
+
+	if (!this->button_custom_size.zero())
+	{
+		w = this->button_custom_size.x;
+		h = this->button_custom_size.y;
+	}
+
 	if (Globals::mousePositionX < this->element_position.x)
 	{
 		inside = false;
 	}
-	else if (Globals::mousePositionX > this->element_position.x + this->button_texture->data().w)
+	else if (Globals::mousePositionX > this->element_position.x + w)
 	{
 		inside = false;
 	}
@@ -31,7 +41,7 @@ bool Lilac::UI::Button::mouse_inside()
 	{
 		inside = false;
 	}
-	else if (Globals::mousePositionY > this->element_position.y + this->button_texture->data().h)
+	else if (Globals::mousePositionY > this->element_position.y + h)
 	{
 		inside = false;
 	}
@@ -54,6 +64,11 @@ void Lilac::UI::Button::set_color(const SDL_Color color)
 void Lilac::UI::Button::set_enabled(const bool state)
 {
 	this->button_enabled = state;
+}
+
+void Lilac::UI::Button::set_custom_size(const Vector2i size)
+{
+	this->button_custom_size = size;
 }
 
 const bool Lilac::UI::Button::enabled()
@@ -85,6 +100,16 @@ void Lilac::UI::Button::set_callback(std::function<void()> callback)
 	this->button_callback = callback;
 }
 
+void Lilac::UI::Button::set_out_callback(std::function<void()> callback)
+{
+	this->button_out_callback = callback;
+}
+
+const Vector2i Lilac::UI::Button::custom_size()
+{
+	return this->button_custom_size;
+}
+
 void Lilac::UI::Button::event(const SDL_Event& event)
 {
 	if (!this->enabled())
@@ -98,6 +123,10 @@ void Lilac::UI::Button::event(const SDL_Event& event)
 		{
 			this->button_callback();
 		}
+		else
+		{
+			this->button_out_callback();
+		}
 	}
 }
 
@@ -108,6 +137,12 @@ void Lilac::UI::Button::render()
 		SDL_Rect dest_rect = this->button_texture->data().clip_rect;
 		dest_rect.x = this->element_position.x;
 		dest_rect.y = this->element_position.y;
+
+		if (!this->button_custom_size.zero())
+		{
+			dest_rect.w = this->button_custom_size.x;
+			dest_rect.h = this->button_custom_size.y;
+		}
 
 		dest_rect = Lilac::Utils::Rendering::rescale(dest_rect);
 

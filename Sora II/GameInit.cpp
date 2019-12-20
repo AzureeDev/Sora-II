@@ -6,7 +6,7 @@ using Lilac::UI::UIText;
 
 void Lilac::Scenes::GameInit::init()
 {
-	UIText* loading_label = this->create_text(UIText("Loading...", { 135, 135, 135, 255 }));
+	UIText* loading_label = this->create_element<UIText>(UIText("Loading...", { 135, 135, 135, 255 }));
 	loading_label->set_position(
 		{
 			Globals::engine->sdl().workspace_size().x - loading_label->text()->data().w - 10,
