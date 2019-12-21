@@ -13,9 +13,16 @@
 namespace Lilac {
 	class Scene
 	{
+	public:
+		struct UIElementDefinition {
+			std::string identifier;
+			int layer = 1;
+			std::shared_ptr<Lilac::UI::UIElement> ui_element = nullptr;
+		};
+
 	protected:
 		bool scene_paused = false;						// When paused, the scene stops updating the logic
-		std::vector<std::shared_ptr<Lilac::UI::UIElement>> scene_ui_elements = {};
+		std::vector<UIElementDefinition> scene_ui_elements = {};
 		World scene_world;
 
 	public:
@@ -29,16 +36,40 @@ namespace Lilac {
 		void resume() { this->scene_paused = false; }	// Setter to unpause
 
 	protected:
-		Lilac::World& create_world(std::string world_identifier);
+		Lilac::World& create_world(const std::string world_identifier);
 
 		template<typename T>
-		T* create_element(T element);
+		T* create_element(const std::string id, const T element, const int layer = 1);
+		template<typename T>
+		T* get_element(const std::string id);
+		void set_element_layer(const std::string id, const int layer);
+
+	private:
+		void trigger_layer_sorting();
 
 	};
+
 	template<typename T>
-	inline T* Scene::create_element(T element)
+	inline T* Scene::create_element(const std::string id, const T element, const int layer)
 	{
-		this->scene_ui_elements.push_back(std::make_shared<T>(element));
-		return dynamic_cast<T*>(this->scene_ui_elements.back().get());
+		this->scene_ui_elements.push_back({ id, layer, std::make_shared<T>(element) });
+		this->trigger_layer_sorting();
+
+		return dynamic_cast<T*>(this->scene_ui_elements.back().ui_element.get());
+	}
+
+	template<typename T>
+	inline T* Scene::get_element(const std::string id)
+	{
+		for (auto& element : this->scene_ui_elements)
+		{
+			if (element.identifier == id)
+			{
+				return dynamic_cast<T*>(element.ui_element.get());
+			}
+		}
+
+		SDL_Log("Scene::get_element : Element %s not found...", id.c_str());
+		return nullptr;
 	}
 }

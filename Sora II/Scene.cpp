@@ -24,7 +24,7 @@ void Lilac::Scene::event(SDL_Event& event)
 {
 	for (auto& ui_element : this->scene_ui_elements)
 	{
-		ui_element->event(event);
+		ui_element.ui_element->event(event);
 	}
 }
 
@@ -51,13 +51,38 @@ void Lilac::Scene::render()
 
 	for (auto& ui_element : this->scene_ui_elements)
 	{
-		ui_element->render();
+		ui_element.ui_element->render();
 	}
 }
 
-Lilac::World& Lilac::Scene::create_world(std::string world_identifier)
+Lilac::World& Lilac::Scene::create_world(const std::string world_identifier)
 {
 	this->scene_world = World(world_identifier);
 
 	return this->scene_world;
+}
+
+void Lilac::Scene::set_element_layer(const std::string id, const int layer)
+{
+	for (auto& element : this->scene_ui_elements)
+	{
+		if (element.identifier == id)
+		{
+			element.layer = layer;
+
+			this->trigger_layer_sorting();
+			return;
+		}
+	}
+
+	SDL_Log("Lilac::Scene::set_element_layer : Element %s not found.", id.c_str());
+}
+
+void Lilac::Scene::trigger_layer_sorting()
+{
+	std::sort(this->scene_ui_elements.begin(), this->scene_ui_elements.end(), [](UIElementDefinition& a, UIElementDefinition& b)
+		{
+			return a.layer < b.layer;
+		}
+	);
 }
