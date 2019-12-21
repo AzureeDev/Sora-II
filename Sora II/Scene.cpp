@@ -28,6 +28,11 @@ void Lilac::Scene::event(SDL_Event& event)
 	}
 }
 
+void Lilac::Scene::_private_update(const float dt)
+{
+	this->scene_timer += dt;
+}
+
 /*
 	update()
 	====================
@@ -76,6 +81,21 @@ void Lilac::Scene::set_element_layer(const std::string id, const int layer)
 	}
 
 	SDL_Log("Lilac::Scene::set_element_layer : Element %s not found.", id.c_str());
+}
+
+void Lilac::Scene::remove_element(const std::string id)
+{
+	for (size_t i = 0; i < this->scene_ui_elements.size(); ++i)
+	{
+		if (this->scene_ui_elements[i].identifier == id)
+		{
+			this->scene_ui_elements.erase(this->scene_ui_elements.begin() + i);
+			this->trigger_layer_sorting();
+			return;
+		}
+	}
+
+	SDL_Log("Lilac::Scene::remove_element : Element %s not found.", id.c_str());
 }
 
 void Lilac::Scene::trigger_layer_sorting()

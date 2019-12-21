@@ -65,5 +65,4 @@ void Lilac::Scenes::MainMenu::init_left_menu()
 
 void Lilac::Scenes::MainMenu::update(const float dt)
 {
-
 }

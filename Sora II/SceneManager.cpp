@@ -65,6 +65,7 @@ void Lilac::SceneManager::update(const float dt)
 	{
 		if (!scene.scene->paused())
 		{
+			scene.scene->_private_update(dt);
 			scene.scene->update(dt);
 		}
 	}

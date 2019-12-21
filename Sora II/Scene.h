@@ -22,6 +22,7 @@ namespace Lilac {
 
 	protected:
 		bool scene_paused = false;						// When paused, the scene stops updating the logic
+		float scene_timer = 0.0f;						// Time passed since the scene was created. This timer is not updated if the scene is paused
 		std::vector<UIElementDefinition> scene_ui_elements = {};
 		World scene_world;
 
@@ -29,9 +30,10 @@ namespace Lilac {
 		virtual ~Scene();								// Destructor, put cleanups here
 		virtual void init();							// Executed on scene creation
 		virtual void event(SDL_Event& event);			// Event catcher
-		virtual void update(const float dt);			// Executed each frames, put logic in there, as well of inserting elements
+		void _private_update(const float dt);			// Private update, do not use - Scene timer is handled here.
+		virtual void update(const float dt);			// Executed each frames, put logic in there
 		virtual void render();							// Executed each frames AFTER logic
-		bool paused() { return this->scene_paused; }	// Boolean if the scene logic is paused
+		const bool paused() const { return this->scene_paused; }	// Boolean if the scene logic is paused
 		void pause() { this->scene_paused = true; }		// Setter for the pause
 		void resume() { this->scene_paused = false; }	// Setter to unpause
 
@@ -43,6 +45,7 @@ namespace Lilac {
 		template<typename T>
 		T* get_element(const std::string id);
 		void set_element_layer(const std::string id, const int layer);
+		void remove_element(const std::string id);
 
 	private:
 		void trigger_layer_sorting();
