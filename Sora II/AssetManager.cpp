@@ -14,12 +14,11 @@ TexturePtr& Lilac::AssetManager::load_texture(const std::string id, const std::s
 
 TexturePtr Lilac::AssetManager::get_texture(const std::string id)
 {
-	for (auto& texture : this->textures)
+	auto iterator = std::find_if(this->textures.begin(), this->textures.end(), [&](const TextureData& d) { return d.id == id; });
+
+	if (iterator != this->textures.end())
 	{
-		if (texture.id == id)
-		{
-			return texture.texture;
-		}
+		return iterator->texture;
 	}
 
 	SDL_Log("Lilac::AssetManager::get_texture : No texture found with the id %s", id.c_str());
@@ -28,13 +27,11 @@ TexturePtr Lilac::AssetManager::get_texture(const std::string id)
 
 void Lilac::AssetManager::unload_texture(const std::string id)
 {
-	for (size_t i = 0; i < this->textures.size(); ++i)
+	auto iterator = std::find_if(this->textures.begin(), this->textures.end(), [&](const TextureData& d) { return d.id == id; });
+
+	if (iterator != this->textures.end())
 	{
-		if (this->textures[i].id == id)
-		{
-			this->textures.erase(this->textures.begin() + i);
-			break;
-		}
+		this->textures.erase(iterator);
 	}
 }
 
@@ -51,15 +48,62 @@ FontPtr& Lilac::AssetManager::load_font(const std::string id, const std::string 
 
 FontPtr Lilac::AssetManager::get_font(const std::string id)
 {
-	for (auto& font : this->fonts)
+	auto iterator = std::find_if(this->fonts.begin(), this->fonts.end(), [&](const FontData& d) { return d.id == id; });
+
+	if (iterator != this->fonts.end())
 	{
-		if (font.id == id)
-		{
-			return font.font;
-		}
+		return iterator->font;
 	}
 
 	SDL_Log("Lilac::AssetManager::get_font : No font found with the id %s", id.c_str());
+	return nullptr;
+}
+
+MusicPtr& Lilac::AssetManager::load_music(const std::string id, const std::string music_path)
+{
+	MusicData data;
+	data.id = id;
+	data.music = std::shared_ptr<Music>(new Music(music_path));
+
+	this->musics.push_back(std::move(data));
+
+	return this->musics.back().music;
+}
+
+MusicPtr Lilac::AssetManager::get_music(const std::string id)
+{
+	auto iterator = std::find_if(this->musics.begin(), this->musics.end(), [&](const MusicData& d) { return d.id == id; });
+
+	if (iterator != this->musics.end())
+	{
+		return iterator->music;
+	}
+
+	SDL_Log("Lilac::AssetManager::get_music : No music found with the id %s", id.c_str());
+	return nullptr;
+}
+
+SFXPtr& Lilac::AssetManager::load_sfx(const std::string id, const std::string sfx_path)
+{
+	SFXData data;
+	data.id = id;
+	data.sfx = std::shared_ptr<SFX>(new SFX(sfx_path));
+
+	this->sfxs.push_back(std::move(data));
+
+	return this->sfxs.back().sfx;
+}
+
+SFXPtr Lilac::AssetManager::get_sfx(const std::string id)
+{
+	auto iterator = std::find_if(this->sfxs.begin(), this->sfxs.end(), [&](const SFXData& d) { return d.id == id; });
+
+	if (iterator != this->sfxs.end())
+	{
+		return iterator->sfx;
+	}
+
+	SDL_Log("Lilac::AssetManager::get_sfx : No SFX found with the id %s", id.c_str());
 	return nullptr;
 }
 
@@ -72,4 +116,6 @@ void Lilac::AssetManager::destroy()
 {
 	this->textures.clear();
 	this->fonts.clear();
+	this->musics.clear();
+	this->sfxs.clear();
 }
