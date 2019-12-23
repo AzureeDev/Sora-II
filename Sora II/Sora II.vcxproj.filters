@@ -62,6 +62,12 @@
     <ClCompile Include="Lua.cpp">
       <Filter>Lilac\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="Music.cpp">
+      <Filter>Lilac\Assets</Filter>
+    </ClCompile>
+    <ClCompile Include="SFX.cpp">
+      <Filter>Lilac\Assets</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Lilac">
@@ -162,6 +168,12 @@
     </ClInclude>
     <ClInclude Include="Lua.h">
       <Filter>Lilac\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Music.h">
+      <Filter>Lilac\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="SFX.h">
+      <Filter>Lilac\Assets</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

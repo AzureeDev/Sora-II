@@ -19,6 +19,7 @@ namespace Lilac
 		std::string asset_name = "";
 		std::string asset_path = "";
 		uint64_t asset_size = 0;
+		bool asset_path_correct = false;
 
 	public:
 		Asset(std::string filepath); // Constructor, fill basic data
@@ -27,6 +28,7 @@ namespace Lilac
 		const std::string& name() { return this->asset_name; }; // Asset name getter
 		const std::string& path() { return this->asset_path; }; // Asset path getter
 		const uint64_t size() { return this->asset_size; }; // Asset size getter
+		const bool path_correct() { return this->asset_path_correct; }; // Is the path correct?
 
 		virtual int load() = 0; // [Pure Virtual] Returns 1 on success, 0 on failure
 		virtual AssetType get() { return this->asset; }; // Return the asset, whatever it is
@@ -56,6 +58,8 @@ namespace Lilac
 
 				int res = stat(filepath.c_str(), &stat_buffer);
 				this->asset_size = res == 0 ? stat_buffer.st_size : 0;
+
+				this->asset_path_correct = true;
 			}
 			else
 			{

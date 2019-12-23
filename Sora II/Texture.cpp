@@ -9,10 +9,13 @@ Lilac::Texture::Texture(std::string texturePath) : Lilac::Asset<SDL_Texture*>(te
 
 Lilac::Texture::~Texture()
 {
-	SDL_DestroyTexture(this->asset);
-	this->asset = nullptr;
+	if (this->asset != nullptr)
+	{
+		SDL_DestroyTexture(this->asset);
+		this->asset = nullptr;
 
-	SDL_Log("Texture %s destroyed.", this->asset_name.c_str());
+		SDL_Log("Texture %s destroyed.", this->asset_name.c_str());
+	}
 }
 
 /* Load the texture. Returns 1 on success, 0 on failure. */

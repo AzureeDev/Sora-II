@@ -166,10 +166,12 @@
     <ClCompile Include="Lua.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="Music.cpp" />
     <ClCompile Include="Rendering.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SDL.cpp" />
+    <ClCompile Include="SFX.cpp" />
     <ClCompile Include="Text.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TickTimer.cpp" />
@@ -189,11 +191,13 @@
     <ClInclude Include="Image.h" />
     <ClInclude Include="Lua.h" />
     <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="Music.h" />
     <ClInclude Include="Rendering.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SDL.h" />
+    <ClInclude Include="SFX.h" />
     <ClInclude Include="Text.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TickTimer.h" />
