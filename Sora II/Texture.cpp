@@ -25,6 +25,8 @@ int Lilac::Texture::load()
 
 	if (textureSurface != nullptr)
 	{
+		SDL_SetSurfaceRLE(textureSurface, 1);
+
 		/* Fill Texture Data */
 		this->texture_data.w = textureSurface->w;
 		this->texture_data.h = textureSurface->h;

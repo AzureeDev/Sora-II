@@ -9,6 +9,7 @@ namespace Lilac::Scenes
 		void init();
 		void init_world();
 		void init_top_bar();
+		void init_menu_bar();
 		void init_left_menu();
 		void update(const float dt);
 	};

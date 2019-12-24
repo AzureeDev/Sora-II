@@ -25,11 +25,12 @@ std::shared_ptr<Lilac::Texture> Lilac::UI::Image::texture()
 	return this->image_texture;
 }
 
-void Lilac::UI::Image::set_color(const SDL_Color color)
+void Lilac::UI::Image::set_color(const SDL_Color color, const Uint8 alpha)
 {
 	this->image_color.r = color.r;
 	this->image_color.g = color.g;
 	this->image_color.b = color.b;
+	this->image_color.a = alpha;
 }
 
 void Lilac::UI::Image::set_alpha(const Uint8 alpha)
@@ -44,6 +45,11 @@ void Lilac::UI::Image::set_scroll(const bool state, const TextureScroll scroll_d
 	this->scroll_speed = speed;
 }
 
+void Lilac::UI::Image::set_custom_size(const Vector2i size)
+{
+	this->image_custom_size = size;
+}
+
 void Lilac::UI::Image::render()
 {
 	if (this->image_texture != nullptr)
@@ -51,6 +57,12 @@ void Lilac::UI::Image::render()
 		SDL_Rect dest_rect = this->image_texture->data().clip_rect;
 		dest_rect.x = this->element_position.x;
 		dest_rect.y = this->element_position.y;
+
+		if (!this->image_custom_size.zero())
+		{
+			dest_rect.w = this->image_custom_size.x;
+			dest_rect.h = this->image_custom_size.y;
+		}
 
 		dest_rect = Lilac::Utils::Rendering::rescale(dest_rect);
 
