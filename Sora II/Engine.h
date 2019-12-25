@@ -19,13 +19,13 @@ namespace Lilac
 	public:
 		Engine();
 		void init_engine();
+		void init_base_assets();
 		void set_cursor_state(const bool visible);
 		void quit();
 		Lilac::SDL& sdl() { return this->sdl_instance; };
 
 	private:
 		void init_globals();
-		void init_base_assets();
 		void init_lua();
 		void init_entry_scene();
 		void update();

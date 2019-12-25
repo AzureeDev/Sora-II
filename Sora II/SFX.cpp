@@ -1,4 +1,5 @@
 #include "SFX.h"
+#include "Globals.h"
 
 Lilac::SFX::SFX(const std::string sfx_path) : Asset(sfx_path)
 {
@@ -18,7 +19,8 @@ int Lilac::SFX::load()
 {
 	if (this->path_correct())
 	{
-		this->asset = Mix_LoadWAV(this->asset_path.c_str());
+		SDL_RWops* rw = Globals::archive->open_file(this->asset_path);
+		this->asset = Mix_LoadWAV_RW(rw, 1);
 		return 1;
 	}
 

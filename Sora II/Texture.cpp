@@ -43,7 +43,7 @@ int Lilac::Texture::load()
 
 		/* Free the surface & raw file */
 		SDL_FreeSurface(textureSurface);
-		SDL_FreeRW(rw);
+		rw->close(rw);
 
 		/* Return 1 on success or 0, with log, if it failed. */
 		if (this->asset == nullptr)

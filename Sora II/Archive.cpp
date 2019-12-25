@@ -2,8 +2,16 @@
 
 Lilac::Archive::Archive()
 {
-	this->load_package("packages/textures.pak");
+}
+
+void Lilac::Archive::load_critical_packages()
+{
 	this->load_package("packages/fonts.pak");
+}
+
+void Lilac::Archive::load_additional_packages()
+{
+	this->load_package("packages/textures.pak");
 	this->load_package("packages/musics.pak");
 }
 

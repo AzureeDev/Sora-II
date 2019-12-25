@@ -1,4 +1,5 @@
 #include "Music.h"
+#include "Globals.h"
 
 Lilac::Music::Music(const std::string music_path) : Asset(music_path)
 {
@@ -18,7 +19,9 @@ int Lilac::Music::load()
 {
 	if (this->path_correct())
 	{
-		this->asset = Mix_LoadMUS(this->asset_path.c_str());
+		SDL_RWops* rw = Globals::archive->open_file(this->asset_path);
+		this->asset = Mix_LoadMUS_RW(rw, 1);
+		
 		return 1;
 	}
 	

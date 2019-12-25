@@ -12,7 +12,6 @@ Lilac::Engine::Engine()
 void Lilac::Engine::init_engine()
 {
 	this->init_globals();
-	this->init_base_assets();
 	this->init_lua();
 	this->init_entry_scene();
 	this->update();
@@ -32,10 +31,14 @@ void Lilac::Engine::init_globals()
 	Globals::archive = std::make_unique<Lilac::Archive>(Archive());
 	Globals::assets = std::make_unique<Lilac::AssetManager>(AssetManager());
 	Globals::scenes = std::make_unique<Lilac::SceneManager>(SceneManager());
+
+	Globals::archive->load_critical_packages();
 }
 
 void Lilac::Engine::init_base_assets()
 {
+	Globals::archive->load_additional_packages();
+
 	/* Init cursor */
 	this->cursor = std::make_shared<Lilac::UI::Image>(Lilac::UI::Image("guis/ui_cursor_normal"));
 

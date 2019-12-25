@@ -12,6 +12,8 @@ namespace Lilac
 
 	public:
 		Archive();
+		void load_critical_packages();
+		void load_additional_packages();
 		SDL_RWops* open_file(const std::string path);
 		
 	private:
