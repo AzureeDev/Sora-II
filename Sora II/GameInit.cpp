@@ -14,13 +14,15 @@ void Lilac::Scenes::GameInit::init()
 		}
 	);
 
-	Globals::assets->load_texture("main_menu_left", "assets/guis/main_menu/main_menu_left");
-
-	this->destroy_scene();
+	Globals::assets->load_texture("main_menu_left", "guis/main_menu/main_menu_left");
 }
 
 void Lilac::Scenes::GameInit::update(const float dt)
 {
+	if (this->scene_timer > 3)
+	{
+		this->destroy_scene();
+	}
 }
 
 void Lilac::Scenes::GameInit::destroy_scene()

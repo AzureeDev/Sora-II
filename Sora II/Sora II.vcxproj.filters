@@ -68,6 +68,9 @@
     <ClCompile Include="SFX.cpp">
       <Filter>Lilac\Assets</Filter>
     </ClCompile>
+    <ClCompile Include="Archive.cpp">
+      <Filter>Lilac\Engine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Lilac">
@@ -174,6 +177,9 @@
     </ClInclude>
     <ClInclude Include="SFX.h">
       <Filter>Lilac\Assets</Filter>
+    </ClInclude>
+    <ClInclude Include="Archive.h">
+      <Filter>Lilac\Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

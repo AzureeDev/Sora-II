@@ -1,4 +1,5 @@
 #include "Font.h"
+#include "Globals.h"
 
 Lilac::Font::Font(std::string asset_path, int ptsize) : Lilac::Asset<TTF_Font*>(asset_path)
 {
@@ -20,7 +21,8 @@ Lilac::Font::~Font()
 
 int Lilac::Font::load()
 {
-	this->asset = TTF_OpenFont(this->asset_path.c_str(), this->asset_font_ptsize);
+	SDL_RWops* rw = Globals::archive->open_file(this->asset_path);
+	this->asset = TTF_OpenFontRW(rw, 1, this->asset_font_ptsize);
 
 	if (this->asset != nullptr)
 	{

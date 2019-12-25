@@ -11,6 +11,8 @@ const SDL_Color theme_secondary_color = { 0, 155, 255, 255 };
 
 void Lilac::Scenes::MainMenu::init()
 {
+	Globals::engine->set_cursor_state(true);
+
 	this->init_world();
 	this->init_top_bar();
 	this->init_menu_bar();
@@ -25,7 +27,7 @@ void Lilac::Scenes::MainMenu::init_world()
 
 void Lilac::Scenes::MainMenu::init_top_bar()
 {
-	Image* top_bar = this->create_element<Image>("mm_top_bar", Image("assets/guis/main_menu/main_menu_top_bar"));
+	Image* top_bar = this->create_element<Image>("mm_top_bar", Image("guis/main_menu/main_menu_top_bar"));
 	top_bar->set_scroll(true);
 	top_bar->set_color(theme_secondary_color);
 
@@ -42,7 +44,7 @@ void Lilac::Scenes::MainMenu::init_menu_bar()
 {
 	auto top_bar = this->get_element<Image>("mm_top_bar");
 
-	Image* menu_bar_bg = this->create_element<Image>("mm_menu_bar_bg", Image("assets/guis/rect_base"));
+	Image* menu_bar_bg = this->create_element<Image>("mm_menu_bar_bg", Image("guis/rect_base"));
 	menu_bar_bg->set_custom_size({ Globals::engine->sdl().workspace_size().x, 64 });
 	menu_bar_bg->set_color({ 0, 0, 0 }, 150);
 	menu_bar_bg->set_position({ 0, top_bar->position().y + top_bar->texture()->data().h });

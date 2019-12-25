@@ -29,6 +29,7 @@ void Lilac::Engine::init_globals()
 {
 	Globals::engine = this;
 	Globals::lua = std::unique_ptr<Lilac::Lua>(new Lua);
+	Globals::archive = std::make_unique<Lilac::Archive>(Archive());
 	Globals::assets = std::make_unique<Lilac::AssetManager>(AssetManager());
 	Globals::scenes = std::make_unique<Lilac::SceneManager>(SceneManager());
 }
@@ -36,13 +37,13 @@ void Lilac::Engine::init_globals()
 void Lilac::Engine::init_base_assets()
 {
 	/* Init cursor */
-	this->cursor = std::make_shared<Lilac::UI::Image>(Lilac::UI::Image("assets/guis/ui_cursor_normal"));
+	this->cursor = std::make_shared<Lilac::UI::Image>(Lilac::UI::Image("guis/ui_cursor_normal"));
 
 	/* Load fonts */
-	Globals::assets->load_font("escom16", "assets/fonts/escom.ttf", 16);
-	Globals::assets->load_font("escom24", "assets/fonts/escom.ttf", 24);
-	Globals::assets->load_font("escom32", "assets/fonts/escom.ttf", 32);
-	Globals::assets->load_font("escom48", "assets/fonts/escom.ttf", 48);
+	Globals::assets->load_font("escom16", "fonts/escom.ttf", 16);
+	Globals::assets->load_font("escom24", "fonts/escom.ttf", 24);
+	Globals::assets->load_font("escom32", "fonts/escom.ttf", 32);
+	Globals::assets->load_font("escom48", "fonts/escom.ttf", 48);
 }
 
 void Lilac::Engine::init_lua()
@@ -52,6 +53,11 @@ void Lilac::Engine::init_lua()
 void Lilac::Engine::init_entry_scene()
 {
 	Globals::scenes->create_scene({ "GameInit", std::shared_ptr<Lilac::Scenes::GameInit>(new Lilac::Scenes::GameInit) });
+}
+
+void Lilac::Engine::set_cursor_state(const bool visible)
+{
+	this->cursor_visible = visible;
 }
 
 void Lilac::Engine::update()
@@ -90,7 +96,12 @@ void Lilac::Engine::update()
 		Globals::scenes->update(deltaTime);
 		Globals::scenes->render();
 		this->cursor->set_position({ Globals::mousePositionX, Globals::mousePositionY });
-		this->cursor->render();
+
+		if (this->cursor_visible)
+		{
+			this->cursor->render();
+		}
+			
 		SDL_RenderPresent(this->sdl_instance.get_renderer());
 
 		int frame_ticks = this->cap_timer.get_ticks();

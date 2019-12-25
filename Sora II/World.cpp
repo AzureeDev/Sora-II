@@ -7,7 +7,7 @@ Lilac::World::World()
 
 Lilac::World::World(std::string world_id)
 {
-	this->world_texture = Globals::assets->load_texture(world_id, "assets/worlds/" + world_id);
+	this->world_texture = Globals::assets->load_texture(world_id, "worlds/" + world_id);
 }
 
 void Lilac::World::set_world_color(const SDL_Color color)

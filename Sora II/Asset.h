@@ -47,29 +47,12 @@ namespace Lilac
 			return;
 		}
 
-		try
-		{
-			if (std::filesystem::exists(std::filesystem::path(filepath)))
-			{
-				struct stat stat_buffer;
-
-				this->asset_path = filepath;
-				this->asset_name = std::filesystem::path(filepath).filename().generic_u8string();
-
-				int res = stat(filepath.c_str(), &stat_buffer);
-				this->asset_size = res == 0 ? stat_buffer.st_size : 0;
-
-				this->asset_path_correct = true;
-			}
-			else
-			{
-				throw std::exception("Cannot open the asset %s. It doesn't exist!");
-			}
-		}
-		catch (std::exception exception)
-		{
-			SDL_Log(exception.what(), filepath.c_str());
-		}
+		struct stat stat_buffer;
+		this->asset_path = filepath;
+		this->asset_name = std::filesystem::path(filepath).filename().generic_u8string();
+		int res = stat(filepath.c_str(), &stat_buffer);
+		this->asset_size = res == 0 ? stat_buffer.st_size : 0;
+		this->asset_path_correct = true;
 	}
 }
 	

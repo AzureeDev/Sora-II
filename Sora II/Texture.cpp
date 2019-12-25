@@ -21,7 +21,8 @@ Lilac::Texture::~Texture()
 /* Load the texture. Returns 1 on success, 0 on failure. */
 int Lilac::Texture::load()
 {
-	SDL_Surface* textureSurface = IMG_Load(this->asset_path.c_str());
+	SDL_RWops* rw = Globals::archive->open_file(this->asset_path);
+	SDL_Surface* textureSurface = IMG_LoadTGA_RW(rw);
 
 	if (textureSurface != nullptr)
 	{
@@ -40,8 +41,9 @@ int Lilac::Texture::load()
 		/* Create the asset */
 		this->asset = SDL_CreateTextureFromSurface(Globals::engine->sdl().get_renderer(), textureSurface);
 
-		/* Free the surface */
+		/* Free the surface & raw file */
 		SDL_FreeSurface(textureSurface);
+		SDL_FreeRW(rw);
 
 		/* Return 1 on success or 0, with log, if it failed. */
 		if (this->asset == nullptr)
@@ -54,6 +56,7 @@ int Lilac::Texture::load()
 	{
 		SDL_Log("Lilac::Texture::load() - Error creating surface %s : %s", this->asset_path.c_str(), IMG_GetError());
 		SDL_FreeSurface(textureSurface);
+		SDL_FreeRW(rw);
 		return 0;
 	}
 

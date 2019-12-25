@@ -1,5 +1,6 @@
 #pragma once
 #include <memory>
+#include "Archive.h"
 #include "Utils.h"
 #include "Engine.h"
 #include "Lua.h"
@@ -12,6 +13,7 @@ struct Globals
 	static int mousePositionY;
 	static Lilac::Engine* engine;
 	static std::unique_ptr<Lilac::Lua> lua;
+	static std::unique_ptr<Lilac::Archive> archive;
 	static std::unique_ptr<Lilac::AssetManager> assets;
 	static std::unique_ptr<Lilac::SceneManager> scenes;
 };
