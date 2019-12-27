@@ -1,5 +1,7 @@
 #include "AssetManager.h"
 const std::string TEXTURE_EXTENSION = ".tga";
+const std::string MUSIC_EXTENSION = ".ogg";
+const std::string SFX_EXTENSION = ".wav";
 
 TexturePtr& Lilac::AssetManager::load_texture(const std::string id, const std::string texture_path)
 {
@@ -63,7 +65,7 @@ MusicPtr& Lilac::AssetManager::load_music(const std::string id, const std::strin
 {
 	MusicData data;
 	data.id = id;
-	data.music = std::shared_ptr<Music>(new Music(music_path));
+	data.music = std::shared_ptr<Music>(new Music(music_path + MUSIC_EXTENSION));
 
 	this->musics.push_back(std::move(data));
 
@@ -87,7 +89,7 @@ SFXPtr& Lilac::AssetManager::load_sfx(const std::string id, const std::string sf
 {
 	SFXData data;
 	data.id = id;
-	data.sfx = std::shared_ptr<SFX>(new SFX(sfx_path));
+	data.sfx = std::shared_ptr<SFX>(new SFX(sfx_path + SFX_EXTENSION));
 
 	this->sfxs.push_back(std::move(data));
 

@@ -50,6 +50,33 @@ void Lilac::UI::Image::set_custom_size(const Vector2i size)
 	this->image_custom_size = size;
 }
 
+Vector2i Lilac::UI::Image::top()
+{
+	return this->element_position;
+}
+
+Vector2i Lilac::UI::Image::bottom()
+{
+	const int height = this->image_custom_size.zero() ? this->texture()->data().h : this->image_custom_size.y;
+	return this->element_position + Vector2i(0, height);
+}
+
+Vector2i Lilac::UI::Image::right()
+{
+	const int width = this->image_custom_size.zero() ? this->texture()->data().w : this->image_custom_size.x;
+	return this->element_position + Vector2i(width, 0);
+}
+
+Vector2i Lilac::UI::Image::left()
+{
+	return this->element_position;
+}
+
+const Vector2i Lilac::UI::Image::custom_size() const
+{
+	return this->image_custom_size;
+}
+
 void Lilac::UI::Image::render()
 {
 	if (this->image_texture != nullptr)

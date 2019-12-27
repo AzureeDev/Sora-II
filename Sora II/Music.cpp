@@ -21,7 +21,6 @@ int Lilac::Music::load()
 	{
 		SDL_RWops* rw = Globals::archive->open_file(this->asset_path);
 		this->asset = Mix_LoadMUS_RW(rw, 1);
-		
 		return 1;
 	}
 	

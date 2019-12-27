@@ -30,6 +30,11 @@ namespace Lilac::UI
 		void set_alpha(const Uint8 alpha);
 		void set_scroll(const bool state, const TextureScroll scroll_direction = TextureScroll::ToRight, const float speed = 1.0f);
 		void set_custom_size(const Vector2i size);
+		Vector2i top();
+		Vector2i bottom();
+		Vector2i right();
+		Vector2i left();
+		const Vector2i custom_size() const;
 		virtual void render();	
 	};
 }

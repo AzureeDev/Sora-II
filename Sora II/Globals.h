@@ -6,6 +6,7 @@
 #include "Lua.h"
 #include "AssetManager.h"
 #include "SceneManager.h"
+#include "MusicManager.h"
 
 struct Globals
 {

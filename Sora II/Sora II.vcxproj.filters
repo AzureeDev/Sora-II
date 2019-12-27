@@ -71,6 +71,10 @@
     <ClCompile Include="Archive.cpp">
       <Filter>Lilac\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="CharacterStats.cpp">
+      <Filter>Lilac\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Lilac">
@@ -181,6 +185,10 @@
     <ClInclude Include="Archive.h">
       <Filter>Lilac\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="CharacterStats.h">
+      <Filter>Lilac\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="SoraII.rc" />

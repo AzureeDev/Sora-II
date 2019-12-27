@@ -47,6 +47,18 @@ void Lilac::Engine::init_base_assets()
 	Globals::assets->load_font("escom24", "fonts/escom.ttf", 24);
 	Globals::assets->load_font("escom32", "fonts/escom.ttf", 32);
 	Globals::assets->load_font("escom48", "fonts/escom.ttf", 48);
+
+	auto escom24_outline = Globals::assets->load_font("escom24_outline", "fonts/escom.ttf", 24);
+	auto escom48_outline = Globals::assets->load_font("escom48_outline", "fonts/escom.ttf", 48);
+
+	auto escom24_italic = Globals::assets->load_font("escom24_italic", "fonts/escom.ttf", 24);
+	auto escom48_italic = Globals::assets->load_font("escom48_italic", "fonts/escom.ttf", 48);
+
+	TTF_SetFontOutline(escom24_outline->get(), 2);
+	TTF_SetFontOutline(escom48_outline->get(), 2);
+
+	TTF_SetFontStyle(escom24_italic->get(), TTF_STYLE_ITALIC);
+	TTF_SetFontStyle(escom48_italic->get(), TTF_STYLE_ITALIC);
 }
 
 void Lilac::Engine::init_lua()
