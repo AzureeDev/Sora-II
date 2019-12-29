@@ -3,6 +3,7 @@
 Lilac::Scene::~Scene()
 {
 	this->scene_ui_elements.clear();
+	SDL_Log("Destroyed the Scene: %s", this->scene_identifier.c_str());
 }
 
 /*
@@ -31,6 +32,11 @@ void Lilac::Scene::event(SDL_Event& event)
 void Lilac::Scene::_private_update(const float dt)
 {
 	this->scene_timer += dt;
+}
+
+void Lilac::Scene::_set_scene_name(const std::string scene_identifier)
+{
+	this->scene_identifier = scene_identifier;
 }
 
 /*

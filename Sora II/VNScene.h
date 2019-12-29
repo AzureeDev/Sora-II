@@ -1,6 +1,7 @@
 #pragma once
 #include "Scene.h"
 #include "VNCharacter.h"
+#include "VNBubble.h"
 
 namespace Lilac::Scenes
 {
@@ -11,9 +12,10 @@ namespace Lilac::Scenes
 		int workspace_width = 0;
 		int workspace_height = 0;
 
-		// Pointers to characters
+		// Pointers to vn stuff
 		Lilac::Scenes::VNCharacter* l_unit = nullptr;
 		Lilac::Scenes::VNCharacter* r_unit = nullptr;
+		Lilac::Scenes::VNBubble* bubble = nullptr;
 
 	public:
 		void init();
@@ -21,5 +23,6 @@ namespace Lilac::Scenes
 
 	private:
 		void _init_characters();
+		void _init_vn_bubble();
 	};
 }

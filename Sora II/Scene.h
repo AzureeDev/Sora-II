@@ -21,6 +21,7 @@ namespace Lilac {
 		};
 
 	protected:
+		std::string scene_identifier = "";
 		bool scene_paused = false;						// When paused, the scene stops updating the logic
 		float scene_timer = 0.0f;						// Time passed since the scene was created. This timer is not updated if the scene is paused
 		std::vector<UIElementDefinition> scene_ui_elements = {};
@@ -31,6 +32,7 @@ namespace Lilac {
 		virtual void init();							// Executed on scene creation
 		virtual void event(SDL_Event& event);			// Event catcher
 		void _private_update(const float dt);			// Private update, do not use - Scene timer is handled here.
+		void _set_scene_name(const std::string scene_identifier); // Private setter to give the scene it's name, if created by SceneManager
 		virtual void update(const float dt);			// Executed each frames, put logic in there
 		virtual void render();							// Executed each frames AFTER logic
 		const bool paused() const { return this->scene_paused; }	// Boolean if the scene logic is paused

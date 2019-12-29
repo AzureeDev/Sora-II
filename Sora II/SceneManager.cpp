@@ -12,6 +12,7 @@ void Lilac::SceneManager::create_scene(const SceneData data)
 	SDL_Log("SceneManager: Created Scene %s", data.scene_name.c_str());
 	this->active_scenes.push_back(data);
 
+	data.scene->_set_scene_name(data.scene_name);
 	data.scene->init();
 }
 
@@ -22,8 +23,6 @@ void Lilac::SceneManager::delete_scene(const std::string scene_name)
 		if (this->active_scenes[i].scene_name == scene_name)
 		{
 			this->active_scenes.erase(this->active_scenes.begin() + i);
-
-			SDL_Log("SceneManager: Deleted Scene %s", scene_name.c_str());
 			break;
 		}
 	}

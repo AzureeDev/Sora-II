@@ -80,7 +80,10 @@
     <ClCompile Include="MusicManager.cpp">
       <Filter>Lilac\Managers</Filter>
     </ClCompile>
-    <ClCompile Include="VNCharacter.cpp" />
+    <ClCompile Include="VNCharacter.cpp">
+      <Filter>Lilac\Scenes\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="VNBubble.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Lilac">
@@ -109,6 +112,9 @@
     </Filter>
     <Filter Include="Lilac\Units">
       <UniqueIdentifier>{4e225bac-4bda-4152-95ad-c55cef3e6a77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lilac\Scenes\Components">
+      <UniqueIdentifier>{a82a1473-3496-43c8-b3d1-977a8da90cc2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -200,7 +206,10 @@
     <ClInclude Include="MusicManager.h">
       <Filter>Lilac\Managers</Filter>
     </ClInclude>
-    <ClInclude Include="VNCharacter.h" />
+    <ClInclude Include="VNCharacter.h">
+      <Filter>Lilac\Scenes\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="VNBubble.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="SoraII.rc" />
