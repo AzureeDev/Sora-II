@@ -46,6 +46,7 @@ namespace Lilac {
 		T* get_element(const std::string id);
 		void set_element_layer(const std::string id, const int layer);
 		void remove_element(const std::string id);
+		void clear_all_elements();
 
 	private:
 		void trigger_layer_sorting();

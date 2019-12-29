@@ -74,7 +74,13 @@
     <ClCompile Include="CharacterStats.cpp">
       <Filter>Lilac\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="MusicManager.cpp" />
+    <ClCompile Include="VNScene.cpp">
+      <Filter>Lilac\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicManager.cpp">
+      <Filter>Lilac\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="VNCharacter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Lilac">
@@ -188,7 +194,13 @@
     <ClInclude Include="CharacterStats.h">
       <Filter>Lilac\Scenes</Filter>
     </ClInclude>
-    <ClInclude Include="MusicManager.h" />
+    <ClInclude Include="VNScene.h">
+      <Filter>Lilac\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicManager.h">
+      <Filter>Lilac\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="VNCharacter.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="SoraII.rc" />

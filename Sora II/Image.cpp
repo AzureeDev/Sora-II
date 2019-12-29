@@ -15,7 +15,24 @@ Lilac::UI::Image::Image(std::string path)
 	}
 
 	this->image_texture = Globals::assets->load_texture("UI::IMAGE_" + path, path);
+	this->image_path = path;
+	this->element_width = this->image_texture->data().w;
+	this->element_height = this->image_texture->data().h;
+}
 
+void Lilac::UI::Image::set_texture(std::string path)
+{
+	for (auto& image : Globals::assets->all_textures())
+	{
+		if (image.id == "UI::IMAGE_" + path)
+		{
+			this->image_texture = image.texture;
+			return;
+		}
+	}
+
+	this->image_texture = Globals::assets->load_texture("UI::IMAGE_" + path, path);
+	this->image_path = path;
 	this->element_width = this->image_texture->data().w;
 	this->element_height = this->image_texture->data().h;
 }
@@ -50,24 +67,29 @@ void Lilac::UI::Image::set_custom_size(const Vector2i size)
 	this->image_custom_size = size;
 }
 
-Vector2i Lilac::UI::Image::top()
+void Lilac::UI::Image::set_flip(const SDL_RendererFlip flip)
+{
+	this->image_flip = flip;
+}
+
+const Vector2i Lilac::UI::Image::top()
 {
 	return this->element_position;
 }
 
-Vector2i Lilac::UI::Image::bottom()
+const Vector2i Lilac::UI::Image::bottom()
 {
-	const int height = this->image_custom_size.zero() ? this->texture()->data().h : this->image_custom_size.y;
+	const int height = this->image_custom_size.zero() ? this->element_height : this->image_custom_size.y;
 	return this->element_position + Vector2i(0, height);
 }
 
-Vector2i Lilac::UI::Image::right()
+const Vector2i Lilac::UI::Image::right()
 {
-	const int width = this->image_custom_size.zero() ? this->texture()->data().w : this->image_custom_size.x;
+	const int width = this->image_custom_size.zero() ? this->element_width : this->image_custom_size.x;
 	return this->element_position + Vector2i(width, 0);
 }
 
-Vector2i Lilac::UI::Image::left()
+const Vector2i Lilac::UI::Image::left()
 {
 	return this->element_position;
 }
@@ -93,6 +115,9 @@ void Lilac::UI::Image::render()
 
 		dest_rect = Lilac::Utils::Rendering::rescale(dest_rect);
 
+		this->element_width = dest_rect.w;
+		this->element_height = dest_rect.h;
+
 		SDL_SetTextureBlendMode(this->image_texture->get(), SDL_BLENDMODE_BLEND);
 		SDL_SetTextureColorMod(this->image_texture->get(), this->image_color.r, this->image_color.g, this->image_color.b);
 		SDL_SetTextureAlphaMod(this->image_texture->get(), this->image_color.a);
@@ -111,8 +136,8 @@ void Lilac::UI::Image::render()
 				const SDL_Rect r_scrollable_texture = { this->scroll_offset, this->position().y, this->element_width, this->element_height };
 				const SDL_Rect r_scrollable_texture2 = { this->scroll_offset + Globals::engine->sdl().workspace_size().x, this->position().y, this->element_width, this->element_height };
 
-				SDL_RenderCopy(Globals::engine->sdl().get_renderer(), this->image_texture->get(), NULL, &r_scrollable_texture);
-				SDL_RenderCopy(Globals::engine->sdl().get_renderer(), this->image_texture->get(), NULL, &r_scrollable_texture2);
+				SDL_RenderCopyEx(Globals::engine->sdl().get_renderer(), this->image_texture->get(), NULL, &r_scrollable_texture, 0, 0, this->image_flip);
+				SDL_RenderCopyEx(Globals::engine->sdl().get_renderer(), this->image_texture->get(), NULL, &r_scrollable_texture2, 0, 0, this->image_flip);
 			}
 			else if (this->scroll_state == TextureScroll::ToRight)
 			{
@@ -126,13 +151,13 @@ void Lilac::UI::Image::render()
 				const SDL_Rect r_scrollable_texture = { this->scroll_offset, this->position().y, this->element_width, this->element_height };
 				const SDL_Rect r_scrollable_texture2 = { this->scroll_offset - Globals::engine->sdl().workspace_size().x, this->position().y, this->element_width, this->element_height };
 
-				SDL_RenderCopy(Globals::engine->sdl().get_renderer(), this->image_texture->get() , NULL, &r_scrollable_texture);
-				SDL_RenderCopy(Globals::engine->sdl().get_renderer(), this->image_texture->get(), NULL, &r_scrollable_texture2);
+				SDL_RenderCopyEx(Globals::engine->sdl().get_renderer(), this->image_texture->get() , NULL, &r_scrollable_texture, 0, 0, this->image_flip);
+				SDL_RenderCopyEx(Globals::engine->sdl().get_renderer(), this->image_texture->get(), NULL, &r_scrollable_texture2, 0, 0, this->image_flip);
 			}
 
 			return;
 		}
 
-		SDL_RenderCopy(Globals::engine->sdl().get_renderer(), this->image_texture->get(), NULL, &dest_rect);
+		SDL_RenderCopyEx(Globals::engine->sdl().get_renderer(), this->image_texture->get(), NULL, &dest_rect, 0, 0, this->image_flip);
 	}
 }

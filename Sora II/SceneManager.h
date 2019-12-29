@@ -23,7 +23,7 @@ namespace Lilac
 		void swap_scene(const std::string scene_name_to_delete, SceneData new_scene_data); // Combine create & delete scene in one function
 		bool exists(const std::string scene_name);			// Boolean if a scene exists or not by scene name
 		template <typename T>
-		std::shared_ptr<T> get_scene(const std::string scene_name);	// Get a scene. Eg: Globals::scenes->get_scene<GameInit>("GameInit")->function()
+		T* get_scene(const std::string scene_name);	// Get a scene. Eg: Globals::scenes->get_scene<GameInit>("GameInit")->function()
 		void event(SDL_Event& event); // Events
 		void update(const float dt);	// Update, for the main loop
 		void render();	// Render, for the main loop
@@ -31,14 +31,17 @@ namespace Lilac
 
 	/* The fact I use a template here is to have polymorphism even though it's a container of basic scenes - We can get all functions from a designated class with this. */
 	template<typename T>
-	inline std::shared_ptr<T> SceneManager::get_scene(const std::string scene_name)
+	inline T* SceneManager::get_scene(const std::string scene_name)
 	{
 		for (auto& scene : this->active_scenes)
 		{
 			if (scene.scene_name == scene_name)
 			{
-				return scene.scene;
+				return dynamic_cast<T*>(scene.scene.get());
 			}
 		}
+
+		SDL_Log("SceneManager::get_scene - No scene found with id %s", scene_name.c_str());
+		return nullptr;
 	}
 }

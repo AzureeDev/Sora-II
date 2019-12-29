@@ -98,6 +98,11 @@ void Lilac::Scene::remove_element(const std::string id)
 	SDL_Log("Lilac::Scene::remove_element : Element %s not found.", id.c_str());
 }
 
+void Lilac::Scene::clear_all_elements()
+{
+	this->scene_ui_elements.clear();
+}
+
 void Lilac::Scene::trigger_layer_sorting()
 {
 	std::sort(this->scene_ui_elements.begin(), this->scene_ui_elements.end(), [](UIElementDefinition& a, UIElementDefinition& b)

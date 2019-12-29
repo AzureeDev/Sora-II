@@ -34,8 +34,8 @@ void Lilac::World::render()
 		return;
 	}
 
-	const int ws_width = Globals::engine->sdl().workspace_size().x;
-	const int ws_height = Globals::engine->sdl().workspace_size().y;
+	const int ws_width = Globals::engine->sdl().window_size().x;
+	const int ws_height = Globals::engine->sdl().window_size().y;
 
 	this->scrolling_offset -= (1 * this->scroll_speed_multiplier);
 

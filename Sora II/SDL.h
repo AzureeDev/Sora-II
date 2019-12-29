@@ -10,7 +10,7 @@ namespace Lilac
 		SDL_Window* window = nullptr;
 		SDL_Renderer* renderer = nullptr;
 		Vector2i windowSize = {};
-		Vector2i workspaceSize = { 1920, 1080 };
+		Vector2i workspaceSize = { 0, 0 };
 
 	public:
 		SDL();
