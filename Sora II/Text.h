@@ -33,6 +33,7 @@ namespace Lilac
 		virtual ~Text();
 		TextData& data();
 		void set_text(std::string text);
+		void set_color(SDL_Color color);
 		void destroy();
 	};
 }

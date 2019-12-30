@@ -4,6 +4,21 @@
 Lilac::UI::UIText::UIText(std::string text, SDL_Color color, int max_width, std::shared_ptr<Lilac::Font> font)
 {
 	this->text_obj = std::shared_ptr<Lilac::Text>(new Lilac::Text(text, color, max_width, font));
+
+	this->element_width = this->text_obj->data().w;
+	this->element_height = this->text_obj->data().h;
+}
+
+void Lilac::UI::UIText::set_text(const std::string text)
+{
+	this->text_obj->set_text(text);
+	this->element_width = this->text_obj->data().w;
+	this->element_height = this->text_obj->data().h;
+}
+
+void Lilac::UI::UIText::set_color(const SDL_Color color)
+{
+	this->text_obj->set_color(color);
 }
 
 void Lilac::UI::UIText::set_visible(const bool visible)

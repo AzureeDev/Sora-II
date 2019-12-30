@@ -3,6 +3,8 @@
 
 void Lilac::Scenes::VNScene::init()
 {
+	Globals::engine->set_cursor_state(true);
+
 	this->create_world("ri_se_sky");
 	this->scene_world.set_world_color({ 45, 125, 255, 255 });
 
@@ -26,7 +28,8 @@ void Lilac::Scenes::VNScene::_init_characters()
 	this->r_unit = Globals::scenes->get_scene<VNCharacter>("r_unit");
 
 	// Init left unit
-	this->l_unit->create_character("sora");
+	this->l_unit->create_character("sora", "stand2");
+	this->l_unit->set_active(true);
 	this->l_unit->artwork()->set_position({ -128, this->workspace_height - this->l_unit->artwork()->height() });
 
 	// Init right unit

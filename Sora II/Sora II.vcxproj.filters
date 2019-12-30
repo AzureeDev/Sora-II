@@ -83,7 +83,9 @@
     <ClCompile Include="VNCharacter.cpp">
       <Filter>Lilac\Scenes\Components</Filter>
     </ClCompile>
-    <ClCompile Include="VNBubble.cpp" />
+    <ClCompile Include="VNBubble.cpp">
+      <Filter>Lilac\Scenes\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Lilac">
@@ -209,7 +211,9 @@
     <ClInclude Include="VNCharacter.h">
       <Filter>Lilac\Scenes\Components</Filter>
     </ClInclude>
-    <ClInclude Include="VNBubble.h" />
+    <ClInclude Include="VNBubble.h">
+      <Filter>Lilac\Scenes\Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="SoraII.rc" />

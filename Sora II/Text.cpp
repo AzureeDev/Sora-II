@@ -79,6 +79,12 @@ void Lilac::Text::set_text(std::string text)
 	}
 }
 
+void Lilac::Text::set_color(SDL_Color color)
+{
+	this->asset_text_color = color;
+	this->set_text(this->asset_current_text);
+}
+
 void Lilac::Text::destroy()
 {
 	if (this->asset != nullptr)
