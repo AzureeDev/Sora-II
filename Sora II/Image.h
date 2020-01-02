@@ -21,6 +21,7 @@ namespace Lilac::UI
 		int image_width = 0;
 		SDL_RendererFlip image_flip = SDL_RendererFlip::SDL_FLIP_NONE;
 		Vector2i image_custom_size = { 0, 0 };
+		bool image_visible = true;
 		bool scrolling = false;
 		TextureScroll scroll_state = TextureScroll::ToRight;
 		float scroll_speed = 1.0f;
@@ -36,6 +37,7 @@ namespace Lilac::UI
 		void set_scroll(const bool state, const TextureScroll scroll_direction = TextureScroll::ToRight, const float speed = 1.0f);
 		void set_custom_size(const Vector2i size);
 		void set_flip(const SDL_RendererFlip flip);
+		void set_visible(const bool state);
 		const Vector2i top();
 		const Vector2i bottom();
 		const Vector2i right();

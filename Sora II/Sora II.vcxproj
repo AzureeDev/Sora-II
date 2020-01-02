@@ -169,6 +169,7 @@
     <ClCompile Include="Lua.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="Math.cpp" />
     <ClCompile Include="Music.cpp" />
     <ClCompile Include="MusicManager.cpp" />
     <ClCompile Include="Rendering.cpp" />
@@ -200,6 +201,7 @@
     <ClInclude Include="Image.h" />
     <ClInclude Include="Lua.h" />
     <ClInclude Include="MainMenu.h" />
+    <ClInclude Include="Math.h" />
     <ClInclude Include="Music.h" />
     <ClInclude Include="MusicManager.h" />
     <ClInclude Include="Rendering.h" />

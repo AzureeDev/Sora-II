@@ -72,6 +72,11 @@ void Lilac::UI::Image::set_flip(const SDL_RendererFlip flip)
 	this->image_flip = flip;
 }
 
+void Lilac::UI::Image::set_visible(const bool state)
+{
+	this->image_visible = state;
+}
+
 const Vector2i Lilac::UI::Image::top()
 {
 	return this->element_position;
@@ -103,6 +108,11 @@ void Lilac::UI::Image::render()
 {
 	if (this->image_texture != nullptr)
 	{
+		if (!this->image_visible)
+		{
+			return;
+		}
+
 		SDL_Rect dest_rect = this->image_texture->data().clip_rect;
 		dest_rect.x = this->element_position.x;
 		dest_rect.y = this->element_position.y;

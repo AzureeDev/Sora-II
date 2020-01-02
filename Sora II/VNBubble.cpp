@@ -8,6 +8,14 @@ void Lilac::Scenes::VNBubble::init()
 	this->_init_bubble_dialog();
 }
 
+void Lilac::Scenes::VNBubble::set_visible(const bool state)
+{
+	this->bubble_bg->set_visible(state);
+	this->bubble_dialog->set_visible(state);
+	this->bubble_name_bg->set_visible(state);
+	this->bubble_name_text->set_visible(state);
+}
+
 void Lilac::Scenes::VNBubble::update(const float dt)
 {
 }
@@ -36,6 +44,6 @@ void Lilac::Scenes::VNBubble::_init_bubble_name()
 
 void Lilac::Scenes::VNBubble::_init_bubble_dialog()
 {
-	this->bubble_dialog = this->create_element<UIText>("vn_bubble_dialog", UIText("Uwah!", { 230, 230, 230, 255 }, this->bubble_bg->width() - 40, Globals::assets->get_font("infini38")));
+	this->bubble_dialog = this->create_element<UIText>("vn_bubble_dialog", UIText("Hum. We should probably go back home... don't you think?", { 230, 230, 230, 255 }, this->bubble_bg->width() - 40, Globals::assets->get_font("infini38")));
 	this->bubble_dialog->set_position(this->bubble_bg->position() + Vector2i(20, 20));
 }

@@ -86,6 +86,9 @@
     <ClCompile Include="VNBubble.cpp">
       <Filter>Lilac\Scenes\Components</Filter>
     </ClCompile>
+    <ClCompile Include="Math.cpp">
+      <Filter>Lilac\Utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Lilac">
@@ -213,6 +216,9 @@
     </ClInclude>
     <ClInclude Include="VNBubble.h">
       <Filter>Lilac\Scenes\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>Lilac\Utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
