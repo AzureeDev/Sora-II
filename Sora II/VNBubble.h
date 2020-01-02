@@ -17,6 +17,7 @@ namespace Lilac::Scenes
 
 	public:
 		void init();
+		void set_text(const std::string character_name, const std::string dialog);
 		void set_visible(const bool state);
 		void update(const float dt);
 

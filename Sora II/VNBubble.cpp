@@ -9,6 +9,12 @@ void Lilac::Scenes::VNBubble::init()
 	this->_init_bubble_arrow();
 }
 
+void Lilac::Scenes::VNBubble::set_text(const std::string character_name, const std::string dialog)
+{
+	this->bubble_name_text->set_text(character_name);
+	this->bubble_dialog->set_text(dialog);
+}
+
 void Lilac::Scenes::VNBubble::set_visible(const bool state)
 {
 	this->bubble_bg->set_visible(state);

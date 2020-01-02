@@ -16,6 +16,11 @@ void Lilac::Scenes::VNScene::init()
 	this->_init_vn_bubble();
 }
 
+Lilac::Scenes::VNBubble* Lilac::Scenes::VNScene::bubble()
+{
+	return this->vn_bubble;
+}
+
 void Lilac::Scenes::VNScene::update(const float dt)
 {
 }
@@ -29,7 +34,7 @@ void Lilac::Scenes::VNScene::_init_characters()
 	this->r_unit = Globals::scenes->get_scene<VNCharacter>("r_unit");
 
 	// Init left unit
-	this->l_unit->create_character("sora", "stand1");
+	this->l_unit->create_character("sora", "stand4");
 	this->l_unit->set_active(true);
 	this->l_unit->artwork()->set_position({ -128, this->workspace_height - this->l_unit->artwork()->height() });
 
@@ -42,6 +47,6 @@ void Lilac::Scenes::VNScene::_init_characters()
 void Lilac::Scenes::VNScene::_init_vn_bubble()
 {
 	Globals::scenes->create_scene({ "vn_bubble", std::shared_ptr<VNBubble>(new VNBubble()) });
-	this->bubble = Globals::scenes->get_scene<VNBubble>("vn_bubble");
+	this->vn_bubble = Globals::scenes->get_scene<VNBubble>("vn_bubble");
 	//this->bubble->set_visible(false);
 }

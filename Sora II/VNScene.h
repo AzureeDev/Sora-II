@@ -15,10 +15,11 @@ namespace Lilac::Scenes
 		// Pointers to vn stuff
 		Lilac::Scenes::VNCharacter* l_unit = nullptr;
 		Lilac::Scenes::VNCharacter* r_unit = nullptr;
-		Lilac::Scenes::VNBubble* bubble = nullptr;
+		Lilac::Scenes::VNBubble* vn_bubble = nullptr;
 
 	public:
 		void init();
+		Lilac::Scenes::VNBubble* bubble();
 		void update(const float dt);
 
 	private:
