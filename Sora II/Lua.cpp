@@ -1,4 +1,5 @@
 #include "Lua.h"
+#include "Globals.h"
 #include <SDL_log.h>
 
 Lilac::Lua::Lua()

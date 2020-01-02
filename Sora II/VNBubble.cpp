@@ -6,6 +6,7 @@ void Lilac::Scenes::VNBubble::init()
 	this->_init_bubble_bg();
 	this->_init_bubble_name();
 	this->_init_bubble_dialog();
+	this->_init_bubble_arrow();
 }
 
 void Lilac::Scenes::VNBubble::set_visible(const bool state)
@@ -14,6 +15,7 @@ void Lilac::Scenes::VNBubble::set_visible(const bool state)
 	this->bubble_dialog->set_visible(state);
 	this->bubble_name_bg->set_visible(state);
 	this->bubble_name_text->set_visible(state);
+	this->bubble_arrow_next->set_visible(state);
 }
 
 void Lilac::Scenes::VNBubble::update(const float dt)
@@ -46,4 +48,13 @@ void Lilac::Scenes::VNBubble::_init_bubble_dialog()
 {
 	this->bubble_dialog = this->create_element<UIText>("vn_bubble_dialog", UIText("Hum. We should probably go back home... don't you think?", { 230, 230, 230, 255 }, this->bubble_bg->width() - 40, Globals::assets->get_font("infini38")));
 	this->bubble_dialog->set_position(this->bubble_bg->position() + Vector2i(20, 20));
+}
+
+void Lilac::Scenes::VNBubble::_init_bubble_arrow()
+{
+	this->bubble_arrow_next = this->create_element<Image>("vn_bubble_next_arrow", Image("guis/novel/vn_arrow_next_dialog"));
+	this->bubble_arrow_next->set_position(this->bubble_bg->position() + Vector2i(
+		this->bubble_bg->width() - 75,
+		this->bubble_bg->height() - 50
+	));
 }

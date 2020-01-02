@@ -1,4 +1,5 @@
 #include "SceneManager.h"
+#include "Globals.h"
 #include <SDL_log.h>
 
 void Lilac::SceneManager::create_scene(const SceneData data)

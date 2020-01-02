@@ -1,4 +1,5 @@
 #include "VNCharacter.h"
+#include "Globals.h"
 
 void Lilac::Scenes::VNCharacter::init()
 {

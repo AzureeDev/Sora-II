@@ -1,4 +1,5 @@
 #include "TickTimer.h"
+#include "Globals.h"
 
 void Lilac::Utils::TickTimer::start()
 {

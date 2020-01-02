@@ -1,4 +1,5 @@
 #include "Archive.h"
+#include "Globals.h"
 
 Lilac::Archive::Archive()
 {

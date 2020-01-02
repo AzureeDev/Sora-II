@@ -1,4 +1,5 @@
 #include "Engine.h"
+#include "Globals.h"
 #include "physfs.h"
 
 int main(int argc, char* argv[])

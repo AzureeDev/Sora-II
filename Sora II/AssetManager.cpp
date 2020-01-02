@@ -1,4 +1,6 @@
 #include "AssetManager.h"
+#include "Globals.h"
+
 const std::string TEXTURE_EXTENSION = ".tga";
 const std::string MUSIC_EXTENSION = ".ogg";
 const std::string SFX_EXTENSION = ".wav";

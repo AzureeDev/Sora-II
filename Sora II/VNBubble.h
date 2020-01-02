@@ -11,6 +11,7 @@ namespace Lilac::Scenes
 		bool bubble_visible = true;
 		Image* bubble_bg = nullptr;
 		Image* bubble_name_bg = nullptr;
+		Image* bubble_arrow_next = nullptr;
 		UIText* bubble_name_text = nullptr;
 		UIText* bubble_dialog = nullptr;
 
@@ -23,5 +24,6 @@ namespace Lilac::Scenes
 		void _init_bubble_bg();
 		void _init_bubble_name();
 		void _init_bubble_dialog();
+		void _init_bubble_arrow();
 	};
 }
