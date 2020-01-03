@@ -48,5 +48,5 @@ void Lilac::Scenes::VNScene::_init_vn_bubble()
 {
 	Globals::scenes->create_scene({ "vn_bubble", std::shared_ptr<VNBubble>(new VNBubble()) });
 	this->vn_bubble = Globals::scenes->get_scene<VNBubble>("vn_bubble");
-	//this->bubble->set_visible(false);
+	//this->vn_bubble->set_visible(false);
 }

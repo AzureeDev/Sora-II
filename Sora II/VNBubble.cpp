@@ -9,6 +9,11 @@ void Lilac::Scenes::VNBubble::init()
 	this->_init_bubble_arrow();
 }
 
+const bool Lilac::Scenes::VNBubble::visible() const
+{
+	return this->bubble_visible;
+}
+
 void Lilac::Scenes::VNBubble::set_text(const std::string character_name, const std::string dialog)
 {
 	this->bubble_name_text->set_text(character_name);
@@ -17,6 +22,8 @@ void Lilac::Scenes::VNBubble::set_text(const std::string character_name, const s
 
 void Lilac::Scenes::VNBubble::set_visible(const bool state)
 {
+	this->bubble_visible = state;
+
 	this->bubble_bg->set_visible(state);
 	this->bubble_dialog->set_visible(state);
 	this->bubble_name_bg->set_visible(state);
@@ -26,6 +33,8 @@ void Lilac::Scenes::VNBubble::set_visible(const bool state)
 
 void Lilac::Scenes::VNBubble::update(const float dt)
 {
+	this->bubble_arrow_slide_state = (Lilac::Utils::Math::sind<float>((this->scene_timer * this->bubble_arrow_slide_speed) * 1) * 5) + this->bubble_arrow_orig_pos.x;
+	this->bubble_arrow_next->set_x(static_cast<int>(bubble_arrow_slide_state));
 }
 
 void Lilac::Scenes::VNBubble::_init_bubble_bg()
@@ -63,4 +72,6 @@ void Lilac::Scenes::VNBubble::_init_bubble_arrow()
 		this->bubble_bg->width() - 75,
 		this->bubble_bg->height() - 50
 	));
+
+	this->bubble_arrow_orig_pos = this->bubble_arrow_next->position();
 }

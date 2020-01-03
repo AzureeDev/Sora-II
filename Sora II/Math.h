@@ -10,11 +10,11 @@ namespace Lilac::Utils
 	public:
 		// std::sin but returns the degree result instead of angle
 		template<typename T = double>
-		double sind(const T param);
+		static double sind(const T param);
 	};
 
 	template<typename T>
-	inline double Math::sind(const T param)
+	static inline double Math::sind(const T param)
 	{
 		T result = 0;
 		result = std::sin(param * PI / 180);

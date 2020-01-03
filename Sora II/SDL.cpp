@@ -21,8 +21,8 @@ void Lilac::SDL::create_window()
 	SDL_SetHint(SDL_HINT_RENDER_DRIVER, "direct3d");
 	SDL_SetHint(SDL_HINT_RENDER_VSYNC, "0");
 
-	this->window = SDL_CreateWindow("PROJECT SORA II", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, dm.w, dm.h, SDL_WINDOW_FULLSCREEN_DESKTOP);
-	this->renderer = SDL_CreateRenderer(this->window, -1, SDL_RENDERER_ACCELERATED);
+	this->window = SDL_CreateWindow("PROJECT SORA II", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, dm.w, dm.h, SDL_WINDOW_BORDERLESS);
+	this->renderer = SDL_CreateRenderer(this->window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 
 	this->windowSize.x = dm.w;
 	this->windowSize.y = dm.h;
