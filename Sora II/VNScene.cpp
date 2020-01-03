@@ -12,8 +12,11 @@ void Lilac::Scenes::VNScene::init()
 	this->workspace_width = Globals::engine->sdl().workspace_size().x;
 	this->workspace_height = Globals::engine->sdl().workspace_size().y;
 
+	this->reader.load_chapter("VNTestChapter");
+
 	this->_init_characters();
 	this->_init_vn_bubble();
+	this->_init_chapter();
 }
 
 Lilac::Scenes::VNBubble* Lilac::Scenes::VNScene::bubble()
@@ -48,5 +51,10 @@ void Lilac::Scenes::VNScene::_init_vn_bubble()
 {
 	Globals::scenes->create_scene({ "vn_bubble", std::shared_ptr<VNBubble>(new VNBubble()) });
 	this->vn_bubble = Globals::scenes->get_scene<VNBubble>("vn_bubble");
-	//this->vn_bubble->set_visible(false);
+	this->vn_bubble->set_visible(false);
+}
+
+void Lilac::Scenes::VNScene::_init_chapter()
+{
+
 }

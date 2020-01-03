@@ -2,6 +2,7 @@
 #include "Scene.h"
 #include "VNCharacter.h"
 #include "VNBubble.h"
+#include "ChapterReader.h"
 
 namespace Lilac::Scenes
 {
@@ -11,6 +12,9 @@ namespace Lilac::Scenes
 		// Easy access values to workspace
 		int workspace_width = 0;
 		int workspace_height = 0;
+
+		// Our XML Reader
+		Lilac::ChapterReader reader;
 
 		// Pointers to vn stuff
 		Lilac::Scenes::VNCharacter* l_unit = nullptr;
@@ -25,5 +29,6 @@ namespace Lilac::Scenes
 	private:
 		void _init_characters();
 		void _init_vn_bubble();
+		void _init_chapter();
 	};
 }
