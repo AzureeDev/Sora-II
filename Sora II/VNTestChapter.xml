@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    Dialog Parameters:
+    ================================================= 
+   
+    id
+    Defines the identifier of the dialog, allows jumps
+    int
+    NO DEFAULT, HAS TO BE DEFINED
+    
+    actor
+    Activate the defined actor and set the current talker name as well
+    string
+    NO DEFAULT, HAS TO BE DEFINED
+    
+    dialog
+    Dialog of the actor.
+    string
+    ""
+    
+    jump
+    Allows to jump to another dialog ID, could be in the future or the past to create repetitions.
+    int
+    <null>
+    
+    block
+    Blocks the player from skipping the text for defined seconds.
+    int
+    -1
+    
+    play_sfx
+    Play a sound file.
+    string
+    <null>
+    
+    play_music
+    Play a repeating music.
+    string
+    <null>
+    
+    overlay
+    Control the overlay with <fade_in> <fade_out>
+    string
+    <null>
+    
+    force_save
+    Saves the player progress, no matter if the player wanted to save or not. <true> or <false>
+    boolean
+    false
+    
+    hide_dialog_box
+    Hides the dialog box, or show it back up
+    boolean
+    false
+-->
+
+<Chapter name="test chapter">
+    <Dialog id="1" actor="sora" dialog="Text 1" />
+    <Dialog id="2" actor="sora" dialog="Text 2" />
+    <Dialog id="3" actor="sugu" dialog="Text 3" />
+    <Dialog id="4" actor="sugu" dialog="Text 4" jump="50" />
+    <Dialog id="50" actor="sora" dialog="Jumped from 4 to 50" />
+</Chapter>

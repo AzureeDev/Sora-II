@@ -89,6 +89,9 @@
     <ClCompile Include="Math.cpp">
       <Filter>Lilac\Utils</Filter>
     </ClCompile>
+    <ClCompile Include="tinyxml2.cpp">
+      <Filter>Lilac\Utils\ThirdParty</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Lilac">
@@ -120,6 +123,9 @@
     </Filter>
     <Filter Include="Lilac\Scenes\Components">
       <UniqueIdentifier>{a82a1473-3496-43c8-b3d1-977a8da90cc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lilac\Utils\ThirdParty">
+      <UniqueIdentifier>{623d3d98-930f-49ba-8327-2f035a21fcb8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -220,11 +226,17 @@
     <ClInclude Include="Math.h">
       <Filter>Lilac\Utils</Filter>
     </ClInclude>
+    <ClInclude Include="tinyxml2.h">
+      <Filter>Lilac\Utils\ThirdParty</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="SoraII.rc" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="X:\sora_ii\img_assets\game_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="VNTestChapter.xml" />
   </ItemGroup>
 </Project>
