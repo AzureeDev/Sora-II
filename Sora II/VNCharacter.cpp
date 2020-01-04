@@ -16,6 +16,12 @@ void Lilac::Scenes::VNCharacter::set_active(const bool active_state)
 	this->character_active = active_state;
 }
 
+void Lilac::Scenes::VNCharacter::set_visible(const bool state)
+{
+	this->character_visible = state;
+	this->character_artwork->set_visible(state);
+}
+
 Lilac::UI::Image* Lilac::Scenes::VNCharacter::artwork()
 {
 	return this->character_artwork;
@@ -43,6 +49,7 @@ void Lilac::Scenes::VNCharacter::say(const std::string text, const std::string a
 
 	auto vn_scene = Globals::scenes->get_scene<VNScene>("VNScene");
 	vn_scene->bubble()->set_text(this->character_name, text);
+	vn_scene->bubble()->set_visible(true);
 }
 
 

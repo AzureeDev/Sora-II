@@ -34,3 +34,31 @@ const std::string Lilac::ChapterReader::get_chapter_title()
 
 	return "[NO TITLE]";
 }
+
+const std::vector<tinyxml2::XMLElement*> Lilac::ChapterReader::get_dialogs()
+{
+	auto root = this->chapter_document.FirstChildElement("Chapter");
+	auto container = std::vector<tinyxml2::XMLElement*>();
+
+	for (XMLElement* element = root->FirstChildElement("Dialog"); element != nullptr; element = element->NextSiblingElement("Dialog"))
+	{
+		container.push_back(element);
+	}
+
+	return container;
+}
+
+const tinyxml2::XMLElement* Lilac::ChapterReader::get_dialog_by_id(const int id)
+{
+	auto container = this->get_dialogs();
+
+	for (const auto& item : container)
+	{
+		if (item->Attribute("id") == std::to_string(id).c_str())
+		{
+			return item;
+		}
+	}
+
+	return nullptr;
+}

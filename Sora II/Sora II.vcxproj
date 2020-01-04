@@ -239,9 +239,6 @@
   <ItemGroup>
     <Image Include="X:\sora_ii\img_assets\game_icon.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Xml Include="VNTestChapter.xml" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

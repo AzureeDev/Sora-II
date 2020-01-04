@@ -11,6 +11,7 @@ namespace Lilac::Scenes
 		Image* character_artwork = nullptr;
 		std::string character_id = "";
 		bool character_active = false;
+		bool character_visible = true;
 		bool character_flipped = false;
 		std::string character_artwork_id = "";
 		std::string character_name = "";
@@ -19,6 +20,7 @@ namespace Lilac::Scenes
 		void init();
 		void set_flipped(const bool flipped_state);
 		void set_active(const bool active_state);
+		void set_visible(const bool state);
 		Lilac::UI::Image* artwork();
 		void create_character(const std::string character_id, const std::string animation = "stand1");
 		void say(const std::string text, const std::string animation = "");
