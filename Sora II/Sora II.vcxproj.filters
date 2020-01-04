@@ -92,7 +92,12 @@
     <ClCompile Include="tinyxml2.cpp">
       <Filter>Lilac\Utils\ThirdParty</Filter>
     </ClCompile>
-    <ClCompile Include="ChapterReader.cpp" />
+    <ClCompile Include="ChapterReader.cpp">
+      <Filter>Lilac\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="VNManager.cpp">
+      <Filter>Lilac\Managers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Lilac">
@@ -230,7 +235,12 @@
     <ClInclude Include="tinyxml2.h">
       <Filter>Lilac\Utils\ThirdParty</Filter>
     </ClInclude>
-    <ClInclude Include="ChapterReader.h" />
+    <ClInclude Include="ChapterReader.h">
+      <Filter>Lilac\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="VNManager.h">
+      <Filter>Lilac\Managers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="SoraII.rc" />

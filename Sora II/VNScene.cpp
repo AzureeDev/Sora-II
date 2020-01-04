@@ -49,12 +49,13 @@ void Lilac::Scenes::VNScene::_init_characters()
 
 void Lilac::Scenes::VNScene::_init_vn_bubble()
 {
-	Globals::scenes->create_scene({ "vn_bubble", std::shared_ptr<VNBubble>(new VNBubble()) });
-	this->vn_bubble = Globals::scenes->get_scene<VNBubble>("vn_bubble");
+	Globals::scenes->create_scene({ "VNBubble", std::shared_ptr<VNBubble>(new VNBubble()) });
+	this->vn_bubble = Globals::scenes->get_scene<VNBubble>("VNBubble");
 	this->vn_bubble->set_visible(false);
 }
 
 void Lilac::Scenes::VNScene::_init_chapter()
 {
-
+	Globals::scenes->create_scene({ "VNManager", std::shared_ptr<Lilac::VNManager>(new Lilac::VNManager()) });
+	Globals::vn_manager = Globals::scenes->get_scene<Lilac::VNManager>("VNManager");
 }

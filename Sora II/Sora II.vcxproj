@@ -193,6 +193,7 @@
     <ClCompile Include="Unit.cpp" />
     <ClCompile Include="VNBubble.cpp" />
     <ClCompile Include="VNCharacter.cpp" />
+    <ClCompile Include="VNManager.cpp" />
     <ClCompile Include="VNScene.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
@@ -230,6 +231,7 @@
     <ClInclude Include="Vector2.h" />
     <ClInclude Include="VNBubble.h" />
     <ClInclude Include="VNCharacter.h" />
+    <ClInclude Include="VNManager.h" />
     <ClInclude Include="VNScene.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>
