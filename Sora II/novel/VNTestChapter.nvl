@@ -55,7 +55,7 @@
     false
 -->
 
-<Chapter name="test chapter">
+<Chapter name="test chapterr" initial_r_unit="sugu" initial_l_unit="sora_m">
     <Dialog id="1" actor="sora" dialog="Text 1" />
     <Dialog id="2" actor="sora" dialog="Text 2" />
     <Dialog id="3" actor="sugu" dialog="Text 3" />

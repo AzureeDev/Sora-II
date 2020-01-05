@@ -13,9 +13,6 @@ namespace Lilac::Scenes
 		int workspace_width = 0;
 		int workspace_height = 0;
 
-		// Our XML Reader
-		Lilac::ChapterReader reader;
-
 		// Pointers to vn stuff
 		Lilac::Scenes::VNCharacter* l_unit = nullptr;
 		Lilac::Scenes::VNCharacter* r_unit = nullptr;

@@ -34,6 +34,13 @@ Lilac::UI::Image* Lilac::Scenes::VNCharacter::artwork()
 
 void Lilac::Scenes::VNCharacter::create_character(const std::string character_id, const std::string animation)
 {
+	auto artwork_position = Vector2i(0, 0);
+
+	if (this->artwork() != nullptr)
+	{
+		artwork_position = this->artwork()->position();
+	}
+
 	if (!this->character_artwork_id.empty())
 	{
 		this->remove_element(this->character_artwork_id);
@@ -48,6 +55,8 @@ void Lilac::Scenes::VNCharacter::create_character(const std::string character_id
 	this->character_name = character_id; // TODO
 	this->character_artwork_id = "vn_character_artwork_" + character_id;
 	this->character_artwork = this->create_element<Image>("vn_character_artwork_" + character_id, Image("mdls/" + character_id + "_" + animation));
+
+	this->artwork()->set_position(artwork_position);
 }
 
 void Lilac::Scenes::VNCharacter::say(const std::string text, const std::string animation)

@@ -3,6 +3,8 @@
 
 void Lilac::VNManager::init()
 {
+	this->chapter_reader.load_chapter("VNTestChapter");
+
 	this->bubble = Globals::scenes->get_scene<Lilac::Scenes::VNBubble>("VNBubble");
 	this->scene = Globals::scenes->get_scene<Lilac::Scenes::VNScene>("VNScene");
 	this->l_unit = Globals::scenes->get_scene<Lilac::Scenes::VNCharacter>("l_unit");

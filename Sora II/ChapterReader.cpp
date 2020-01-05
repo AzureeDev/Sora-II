@@ -37,8 +37,14 @@ const std::string Lilac::ChapterReader::get_chapter_title()
 
 const std::string Lilac::ChapterReader::get_initial_l_unit_id()
 {
-	std::string unit_id = "";
-	unit_id = this->chapter_document.FirstChildElement("Chapter")->FindAttribute("initial_l_unit")->Value();
+	auto attribute = this->chapter_document.FirstChildElement("Chapter")->FindAttribute("initial_l_unit");
+
+	if (attribute == nullptr)
+	{
+		return "none";
+	}
+
+	auto unit_id = attribute->Value();
 
 	if (unit_id != "")
 	{
@@ -50,8 +56,14 @@ const std::string Lilac::ChapterReader::get_initial_l_unit_id()
 
 const std::string Lilac::ChapterReader::get_initial_r_unit_id()
 {
-	std::string unit_id = "";
-	unit_id = this->chapter_document.FirstChildElement("Chapter")->FindAttribute("initial_r_unit")->Value();
+	auto attribute = this->chapter_document.FirstChildElement("Chapter")->FindAttribute("initial_r_unit");
+
+	if (attribute == nullptr)
+	{
+		return "none";
+	}
+
+	auto unit_id = attribute->Value();
 
 	if (unit_id != "")
 	{

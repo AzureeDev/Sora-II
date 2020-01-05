@@ -12,8 +12,6 @@ void Lilac::Scenes::VNScene::init()
 	this->workspace_width = Globals::engine->sdl().workspace_size().x;
 	this->workspace_height = Globals::engine->sdl().workspace_size().y;
 
-	this->reader.load_chapter("VNTestChapter");
-
 	this->_init_characters();
 	this->_init_vn_bubble();
 	this->_init_chapter();
