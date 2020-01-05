@@ -35,6 +35,32 @@ const std::string Lilac::ChapterReader::get_chapter_title()
 	return "[NO TITLE]";
 }
 
+const std::string Lilac::ChapterReader::get_initial_l_unit_id()
+{
+	std::string unit_id = "";
+	unit_id = this->chapter_document.FirstChildElement("Chapter")->FindAttribute("initial_l_unit")->Value();
+
+	if (unit_id != "")
+	{
+		return unit_id;
+	}
+
+	return "none";
+}
+
+const std::string Lilac::ChapterReader::get_initial_r_unit_id()
+{
+	std::string unit_id = "";
+	unit_id = this->chapter_document.FirstChildElement("Chapter")->FindAttribute("initial_r_unit")->Value();
+
+	if (unit_id != "")
+	{
+		return unit_id;
+	}
+
+	return "none";
+}
+
 const std::vector<tinyxml2::XMLElement*> Lilac::ChapterReader::get_dialogs()
 {
 	auto root = this->chapter_document.FirstChildElement("Chapter");

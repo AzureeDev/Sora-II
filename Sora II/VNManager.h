@@ -26,6 +26,7 @@ namespace Lilac
 		void update(const float dt);
 
 	private:
+		void _pre_init_chapter();
 		void _set_new_actor();
 	};
 }

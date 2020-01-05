@@ -18,6 +18,7 @@ namespace Lilac::Scenes
 
 	public:
 		void init();
+		const std::string id() const;
 		void set_flipped(const bool flipped_state);
 		void set_active(const bool active_state);
 		void set_visible(const bool state);

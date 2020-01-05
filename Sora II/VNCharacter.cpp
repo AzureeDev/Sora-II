@@ -6,6 +6,11 @@ void Lilac::Scenes::VNCharacter::init()
 	
 }
 
+const std::string Lilac::Scenes::VNCharacter::id() const
+{
+	return this->character_id;
+}
+
 void Lilac::Scenes::VNCharacter::set_flipped(const bool flipped_state)
 {
 	this->character_flipped = flipped_state;
@@ -32,6 +37,11 @@ void Lilac::Scenes::VNCharacter::create_character(const std::string character_id
 	if (!this->character_artwork_id.empty())
 	{
 		this->remove_element(this->character_artwork_id);
+	}
+
+	if (character_id == "none")
+	{
+		return;
 	}
 	
 	this->character_id = character_id;

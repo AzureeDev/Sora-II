@@ -56,6 +56,9 @@ void Lilac::Scenes::VNScene::_init_vn_bubble()
 
 void Lilac::Scenes::VNScene::_init_chapter()
 {
+	// Pre chapter init
+
+
 	Globals::scenes->create_scene({ "VNManager", std::shared_ptr<Lilac::VNManager>(new Lilac::VNManager()) });
 	Globals::vn_manager = Globals::scenes->get_scene<Lilac::VNManager>("VNManager");
 }
