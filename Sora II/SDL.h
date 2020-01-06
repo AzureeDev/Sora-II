@@ -14,8 +14,11 @@ namespace Lilac
 
 	public:
 		SDL();
+		// Create the SDL window
 		void create_window();
+		// Create the SDL mixer (sound)
 		void create_mixer();
+		// Create the SDL TTF (fonts)
 		void create_ttf();
 		SDL_Window* get_window() { return this->window; };
 		SDL_Renderer* get_renderer() { return this->renderer; };

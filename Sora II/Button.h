@@ -30,17 +30,28 @@ namespace Lilac::UI
 		Button() {};
 		Button(std::string button_texture_path);
 
+		// Set the position of the button
 		virtual void set_position(Vector2i pos);
+		// Boolean returning true if the mouse is inside the button area
 		bool mouse_inside();
+		// Set an animation for the button when hovered
 		void set_animation(const ButtonAnimation anim);
+		// Set a color (added on top)
 		void set_color(const SDL_Color color);
+		// Enables the button (can be clicked or not.)
 		void set_enabled(const bool state);
+		// Sets a custom size for the button
 		void set_custom_size(const Vector2i size);
+		// Returns true or false, if the button is enabled or not
 		const bool enabled();
+		// Color when hovered
 		void set_highlight_color(const SDL_Color color);
+		// Color when disabled
 		void set_disabled_color(const SDL_Color color);
 		std::shared_ptr<Lilac::Texture> texture();
+		// Callback when clicked, either static function or lambda
 		void set_callback(std::function<void()> callback);
+		// Callback when clicked but not clicked on the button itself - was planned to be used on a text input UI element that got scrapped.
 		void set_out_callback(std::function<void()> callback);
 		const Vector2i custom_size();
 		virtual void event(const SDL_Event& event);

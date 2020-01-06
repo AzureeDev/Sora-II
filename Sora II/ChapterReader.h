@@ -12,6 +12,7 @@ namespace Lilac
 
 	public:
 		ChapterReader();
+		// Load the chapter file and parse it
 		void load_chapter(const std::string& xml_path);
 		const std::string get_chapter_title();
 		const std::string get_initial_l_unit_id();

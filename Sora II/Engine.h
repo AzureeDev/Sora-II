@@ -18,10 +18,15 @@ namespace Lilac
 		// Methods
 	public:
 		Engine();
+		// Initialize engine
 		void init_engine();
+		// Load cursor and fonts here.
 		void init_base_assets();
+		// Sets the cursor visible or not.
 		void set_cursor_state(const bool visible);
+		// Free the memory and quit the game
 		void quit();
+		// Access to SDL component
 		Lilac::SDL& sdl() { return this->sdl_instance; };
 
 	private:

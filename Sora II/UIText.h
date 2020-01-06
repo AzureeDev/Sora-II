@@ -13,11 +13,12 @@ namespace Lilac::UI
 
 	public:
 		UIText() {};
+		// Create a new text. max_width is used to define a maximum width value before going to a new line directly. 0 means "workspace width" that doesn't take the current position in consideration.
 		UIText(std::string text, SDL_Color color = { 255, 255, 255, 255 }, int max_width = 0, std::shared_ptr<Lilac::Font> font = nullptr);
 		std::shared_ptr<Lilac::Text> text() { return this->text_obj; };
-		void set_text(const std::string text);
-		void set_color(const SDL_Color color);
-		void set_visible(const bool visible);
+		void set_text(const std::string text); // Sets the current Text object to a new text. Automatically destroys the previous text
+		void set_color(const SDL_Color color); // Set the text color
+		void set_visible(const bool visible); // Set the text visibility
 		void render();
 	};
 }

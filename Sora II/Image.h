@@ -30,18 +30,21 @@ namespace Lilac::UI
 	public:
 		Image() {};
 		Image(std::string path);
+		// Sets a new texture for this image
 		void set_texture(std::string path);
 		std::shared_ptr<Lilac::Texture> texture();
 		void set_color(const SDL_Color color, const Uint8 alpha = 255);
 		void set_alpha(const Uint8 alpha);
+		// Make the texture scrolling over the entire workspace
 		void set_scroll(const bool state, const TextureScroll scroll_direction = TextureScroll::ToRight, const float speed = 1.0f);
 		void set_custom_size(const Vector2i size);
+		// Flip the texture either vertically or horizontally
 		void set_flip(const SDL_RendererFlip flip);
 		void set_visible(const bool state);
-		const Vector2i top();
-		const Vector2i bottom();
-		const Vector2i right();
-		const Vector2i left();
+		const Vector2i top(); // Position at the top of the image
+		const Vector2i bottom(); // Position at the bottom of the image
+		const Vector2i right(); // Position at the right of the image
+		const Vector2i left(); // Position at the left of the image
 		const Vector2i custom_size() const;
 		virtual void render();	
 	};

@@ -12,8 +12,11 @@ namespace Lilac
 
 	public:
 		Archive();
+		// Critical packages are packages you want to load as early as possible - fonts are there as text renderered with a nullptr font will crash the game (tofix)
 		void load_critical_packages();
+		// All other packages, sounds, music, ect
 		void load_additional_packages();
+		// Used by Assets, loads a file from the archive.
 		SDL_RWops* open_file(const std::string path);
 		
 	private:

@@ -12,9 +12,13 @@ namespace Lilac::Utils
 		bool started = false;
 
 	public:
+		// Start the timer
 		void start();
+		// Stop the timer and resets
 		void stop();
+		// Pause the timer
 		void pause();
+		// Unpause the timer
 		void unpause();
 
 		Uint32 get_ticks();
