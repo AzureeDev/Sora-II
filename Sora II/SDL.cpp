@@ -36,7 +36,7 @@ void Lilac::SDL::create_window()
 void Lilac::SDL::create_mixer()
 {
 	Mix_Init(MIX_InitFlags::MIX_INIT_OGG);
-	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
+	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
 }
 
 void Lilac::SDL::create_ttf()

@@ -1,6 +1,6 @@
 #include "GameInit.h"
 #include "Globals.h"
-#include "VNScene.h"
+#include "CharacterStats.h"
 
 using Lilac::UI::UIText;
 
@@ -16,5 +16,5 @@ void Lilac::Scenes::GameInit::update(const float dt)
 
 void Lilac::Scenes::GameInit::destroy_scene()
 {
-	Globals::scenes->swap_scene("GameInit", { "VNScene", std::shared_ptr<Lilac::Scenes::VNScene>(new Lilac::Scenes::VNScene()) });
+	Globals::scenes->swap_scene("GameInit", { "CharacterStats", std::shared_ptr<Lilac::Scenes::CharacterStats>(new Lilac::Scenes::CharacterStats()) });
 }

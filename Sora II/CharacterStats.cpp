@@ -5,7 +5,7 @@ using namespace Lilac::UI;
 
 void Lilac::Scenes::CharacterStats::init()
 {
-	MusicManager::play_with_repeat("musics/suguri3", 118.519);
+	MusicManager::play_with_repeat("musics/suguv3", 118.519);
 	Globals::engine->set_cursor_state(true);
 
 	Image* scene_bg = this->create_element<Image>("scene_bg", Image("guis/main_menu/character_stats_bg"));
