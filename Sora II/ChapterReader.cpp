@@ -24,53 +24,17 @@ void Lilac::ChapterReader::load_chapter(const std::string& xml_path)
 
 const std::string Lilac::ChapterReader::get_chapter_title()
 {
-	std::string title = "";
-	title = this->chapter_document.FirstChildElement("Chapter")->FindAttribute("name")->Value();
-
-	if (title != "")
-	{
-		return title;
-	}
-
-	return "[NO TITLE]";
+	return this->_get_value("title");
 }
 
 const std::string Lilac::ChapterReader::get_initial_l_unit_id()
 {
-	auto attribute = this->chapter_document.FirstChildElement("Chapter")->FindAttribute("initial_l_unit");
-
-	if (attribute == nullptr)
-	{
-		return "none";
-	}
-
-	auto unit_id = attribute->Value();
-
-	if (unit_id != "")
-	{
-		return unit_id;
-	}
-
-	return "none";
+	return this->_get_value("initial_l_unit");
 }
 
 const std::string Lilac::ChapterReader::get_initial_r_unit_id()
 {
-	auto attribute = this->chapter_document.FirstChildElement("Chapter")->FindAttribute("initial_r_unit");
-
-	if (attribute == nullptr)
-	{
-		return "none";
-	}
-
-	auto unit_id = attribute->Value();
-
-	if (unit_id != "")
-	{
-		return unit_id;
-	}
-
-	return "none";
+	return this->_get_value("initial_r_unit");
 }
 
 const std::vector<tinyxml2::XMLElement*> Lilac::ChapterReader::get_dialogs()
@@ -99,4 +63,23 @@ const tinyxml2::XMLElement* Lilac::ChapterReader::get_dialog_by_id(const int id)
 	}
 
 	return nullptr;
+}
+
+const std::string Lilac::ChapterReader::_get_value(const std::string key)
+{
+	auto attribute = this->chapter_document.FirstChildElement("Chapter")->FindAttribute(key.c_str());
+
+	if (attribute == nullptr)
+	{
+		return "none";
+	}
+
+	auto unit_id = attribute->Value();
+
+	if (unit_id != "")
+	{
+		return unit_id;
+	}
+
+	return "none";
 }

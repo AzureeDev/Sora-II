@@ -65,6 +65,8 @@ void Lilac::UI::Image::set_scroll(const bool state, const TextureScroll scroll_d
 void Lilac::UI::Image::set_custom_size(const Vector2i size)
 {
 	this->image_custom_size = size;
+	this->element_width = size.x;
+	this->element_height = size.y;
 }
 
 void Lilac::UI::Image::set_flip(const SDL_RendererFlip flip)

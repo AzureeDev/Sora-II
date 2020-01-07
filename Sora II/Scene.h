@@ -59,9 +59,12 @@ namespace Lilac {
 	inline T* Scene::create_element(const std::string id, const T element, const int layer)
 	{
 		this->scene_ui_elements.push_back({ id, layer, std::make_shared<T>(element) });
+
+		// Set element_ptr here because reordering the layers could not return the good value if we use back() afterwards.
+		auto element_ptr = this->scene_ui_elements.back().ui_element.get();
 		this->trigger_layer_sorting();
 
-		return dynamic_cast<T*>(this->scene_ui_elements.back().ui_element.get());
+		return dynamic_cast<T*>(element_ptr);
 	}
 
 	template<typename T>

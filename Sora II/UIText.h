@@ -19,6 +19,10 @@ namespace Lilac::UI
 		void set_text(const std::string text); // Sets the current Text object to a new text. Automatically destroys the previous text
 		void set_color(const SDL_Color color); // Set the text color
 		void set_visible(const bool visible); // Set the text visibility
+		const Vector2i top();
+		const Vector2i bottom();
+		const Vector2i right();
+		const Vector2i left();
 		void render();
 	};
 }

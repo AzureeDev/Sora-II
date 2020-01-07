@@ -20,6 +20,9 @@ namespace Lilac
 		const std::vector<tinyxml2::XMLElement*> get_dialogs();
 
 		const tinyxml2::XMLElement* get_dialog_by_id(const int id);
+
+	private:
+		const std::string _get_value(const std::string key);
 		
 	};
 }
