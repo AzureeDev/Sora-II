@@ -58,13 +58,13 @@ void Lilac::Scenes::CharacterStats::init_stat_container()
 	);
 
 	/*
-		Background stats
+		Background workspace
 	*/
 
-	Image* character_stats_bg = this->create_element<Image>("character_name_bg", Image("guis/rect_base"), -1);
-	character_stats_bg->set_custom_size({ Globals::engine->sdl().workspace_size().x, Globals::engine->sdl().window_size().y });
-	character_stats_bg->set_color({ 0, 0, 0 }, 190);
-	character_stats_bg->set_position(character_name_bg->bottom());
+	Image* character_ws_bg = this->create_element<Image>("character_ws_bg", Image("guis/rect_base"), -1);
+	character_ws_bg->set_custom_size({ Globals::engine->sdl().workspace_size().x, Globals::engine->sdl().window_size().y });
+	character_ws_bg->set_color({ 0, 0, 0 }, 190);
+	character_ws_bg->set_position(character_name_bg->bottom());
 
 	/*
 		Description of the character
@@ -82,6 +82,59 @@ void Lilac::Scenes::CharacterStats::init_stat_container()
 			character_name_bg->bottom().y + 64
 		}
 	);
+
+	/*
+		Background stats
+	*/
+
+	Image* character_stats_bg = this->create_element<Image>("character_stats_bg", Image("guis/rect_base"));
+	character_stats_bg->set_custom_size({ 950, 200 });
+	character_stats_bg->set_color({ 0, 0, 0 }, 160);
+	character_stats_bg->set_position(
+		{
+			character_description->left().x,
+			character_description->bottom().y + 32
+		}
+	);
+
+	/*
+		Stats rendering
+	*/
+
+	struct Statistics {
+		std::string name;
+		int amount;
+	};
+
+	const std::vector<Statistics> character_stats = {
+		{ "Attack", 65 },
+		{ "Defense", 25 },
+		{ "Evasion", 45 },
+		{ "Recovery", 100 }
+	};
+
+	for (size_t i = 0; i < character_stats.size(); ++i)
+	{
+		UIText* statistic_label = nullptr;
+		UIText* statistic_amount = nullptr;
+
+		statistic_label = this->create_element<UIText>("character_stat_" + std::to_string(i), UIText(character_stats[i].name));
+		statistic_amount = this->create_element<UIText>("character_stat_amount_" + std::to_string(i), UIText(std::to_string(character_stats[i].amount)));
+
+		if (i == 0)
+		{
+			statistic_label->set_position(character_stats_bg->position() + Vector2i(16, 16));
+			statistic_amount->set_position(statistic_label->position() + Vector2i(128 * 3, 0));
+		}
+		else
+		{
+			Vector2i previous_item_label_bottom = this->get_element<UIText>("character_stat_" + std::to_string(i - 1))->bottom();
+			Vector2i previous_item_amount_bottom = this->get_element<UIText>("character_stat_amount_" + std::to_string(i - 1))->bottom();
+
+			statistic_label->set_position(previous_item_label_bottom + Vector2i(0, 16));
+			statistic_amount->set_position(previous_item_amount_bottom + Vector2i(0, 16));
+		}
+	}
 }
 
 void Lilac::Scenes::CharacterStats::update(const float dt)

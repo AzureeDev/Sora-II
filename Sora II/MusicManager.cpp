@@ -20,7 +20,6 @@ void Lilac::MusicManager::play_with_repeat(const std::string music_path, const d
 
 void Lilac::MusicManager::repeat_current_at_time()
 {
-	SDL_Log("Executing callback.");
 	Mix_PlayMusic(MusicManager::current_music, 0);
 	if (Mix_SetMusicPosition(MusicManager::current_repeat_time) == -1)
 	{
