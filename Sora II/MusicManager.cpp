@@ -4,6 +4,13 @@
 Mix_Music* Lilac::MusicManager::current_music = nullptr;
 double Lilac::MusicManager::current_repeat_time = 0.0;
 
+void Lilac::MusicManager::play(const std::string music_path, const int repeats)
+{
+	MusicManager::current_music = Globals::assets->load_music("MusicManager_music", music_path)->get();
+	Mix_FadeInMusic(MusicManager::current_music, repeats, 1500);
+	Mix_VolumeMusic(35);
+}
+
 void Lilac::MusicManager::play_with_repeat(const std::string music_path, const double repeat_time)
 {
 	MusicManager::current_music = Globals::assets->load_music("MusicManager_music", music_path)->get();

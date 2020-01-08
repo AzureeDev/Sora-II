@@ -11,6 +11,8 @@ namespace Lilac
 		static double current_repeat_time;
 
 	public:
+		// Play a music without loop point. -1 repeats means always repeat.
+		static void play(const std::string music_path, const int repeats = -1);
 		// Play a music and repeat it on the loop point "repeat_time".
 		static void play_with_repeat(const std::string music_path, const double repeat_time);
 		// Callback that repeats the song for "play_with_repeat".

@@ -1,8 +1,6 @@
 #include "MainMenu.h"
 #include "Globals.h"
 
-using Lilac::UI::Image, Lilac::UI::UIText, Lilac::UI::Button;
-
 // base theme: { 0, 155, 255, 255 }
 // christmas theme: { 0, 155, 255, 255 } / { 255, 165, 165, 255 }
 
@@ -11,6 +9,7 @@ const SDL_Color theme_secondary_color = { 0, 155, 255, 255 };
 
 void Lilac::Scenes::MainMenu::init()
 {
+	MusicManager::play("musics/menu");
 	Globals::engine->set_cursor_state(true);
 
 	this->init_world();
@@ -28,6 +27,7 @@ void Lilac::Scenes::MainMenu::init_world()
 void Lilac::Scenes::MainMenu::init_top_bar()
 {
 	Image* top_bar = this->create_element<Image>("mm_top_bar", Image("guis/main_menu/main_menu_top_bar"));
+	top_bar->set_position({ 0, 32 });
 	top_bar->set_scroll(true);
 	top_bar->set_color(theme_secondary_color);
 
@@ -52,7 +52,18 @@ void Lilac::Scenes::MainMenu::init_menu_bar()
 
 void Lilac::Scenes::MainMenu::init_left_menu()
 {
+	Image* menu_left = this->create_element<Image>("mm_menu_left_bg", Image("guis/main_menu/menu_left"));
+	menu_left->set_color(theme_primary_color);
+	menu_left->set_position({ -32, 0 });
+}
 
+void Lilac::Scenes::MainMenu::clear_left_menu_buttons()
+{
+	for (const auto& button : this->left_menu_btns)
+	{
+		const std::string btn_id = button->id();
+		this->remove_element(btn_id);
+	}
 }
 
 void Lilac::Scenes::MainMenu::update(const float dt)

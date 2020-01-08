@@ -7,7 +7,7 @@ void Lilac::Scenes::CharacterStats::init()
 {
 	this->create_world("ri_se_sky");
 	this->scene_world.set_world_color({ 100, 160, 255, 175 });
-	//MusicManager::play_with_repeat("musics/suguv3", 118.418);
+	MusicManager::play_with_repeat("musics/suguv3", 118.418);
 	Globals::engine->set_cursor_state(true);
 
 	Image* character_art = this->create_element<Image>("character_art", Image("units/sora_m/_art"));

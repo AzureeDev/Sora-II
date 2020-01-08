@@ -1,11 +1,17 @@
 #include "Button.h"
 #include "Globals.h"
 
-Lilac::UI::Button::Button(std::string button_texture_path)
+Lilac::UI::Button::Button(std::string button_id, std::string button_texture_path)
 {
+	this->button_id = button_id;
 	this->button_texture = Globals::assets->load_texture("UI::BUTTON_" + button_texture_path, button_texture_path);
 	this->button_callback = [button_texture_path]() { SDL_Log("No valid callback for the button: %s", button_texture_path.c_str()); };
 	this->button_out_callback = []() {};
+}
+
+const std::string Lilac::UI::Button::id()
+{
+	return this->button_id;
 }
 
 void Lilac::UI::Button::set_position(Vector2i pos)
@@ -95,14 +101,19 @@ std::shared_ptr<Lilac::Texture> Lilac::UI::Button::texture()
 	return this->button_texture;
 }
 
-void Lilac::UI::Button::set_callback(std::function<void()> callback)
+void Lilac::UI::Button::set_callback(const std::function<void()> callback)
 {
 	this->button_callback = callback;
 }
 
-void Lilac::UI::Button::set_out_callback(std::function<void()> callback)
+void Lilac::UI::Button::set_out_callback(const std::function<void()> callback)
 {
 	this->button_out_callback = callback;
+}
+
+void Lilac::UI::Button::set_hovered_callback(const std::function<void()> callback)
+{
+	this->button_on_hover_callback = callback;
 }
 
 const Vector2i Lilac::UI::Button::custom_size()
@@ -154,6 +165,16 @@ void Lilac::UI::Button::render()
 		{
 			SDL_SetTextureColorMod(this->button_texture->get(), this->button_highlight_color.r, this->button_highlight_color.g, this->button_highlight_color.b);
 			SDL_SetTextureAlphaMod(this->button_texture->get(), this->button_highlight_color.a);
+
+			if (!this->button_hovered)
+			{
+				this->button_on_hover_callback();
+				this->button_hovered = true;
+			}
+		}
+		else
+		{
+			this->button_hovered = false;
 		}
 
 		if (!this->enabled())
