@@ -7,7 +7,7 @@ void Lilac::Scenes::CharacterStats::init()
 {
 	this->create_world("ri_se_sky");
 	this->scene_world.set_world_color({ 100, 160, 255, 175 });
-	MusicManager::play_with_repeat("musics/suguv3", 118.418);
+	//MusicManager::play_with_repeat("musics/suguv3", 118.418);
 	Globals::engine->set_cursor_state(true);
 
 	Image* character_art = this->create_element<Image>("character_art", Image("units/sora_m/_art"));
@@ -79,7 +79,7 @@ void Lilac::Scenes::CharacterStats::init_stat_container()
 	character_description->set_position(
 		{
 			character_name->left().x,
-			character_name_bg->bottom().y + 64
+			character_name_bg->bottom().y + 32
 		}
 	);
 
@@ -88,7 +88,6 @@ void Lilac::Scenes::CharacterStats::init_stat_container()
 	*/
 
 	Image* character_stats_bg = this->create_element<Image>("character_stats_bg", Image("guis/rect_base"));
-	character_stats_bg->set_custom_size({ 950, 200 });
 	character_stats_bg->set_color({ 0, 0, 0 }, 160);
 	character_stats_bg->set_position(
 		{
@@ -100,40 +99,52 @@ void Lilac::Scenes::CharacterStats::init_stat_container()
 	/*
 		Stats rendering
 	*/
-
+	
+	// Example struct
 	struct Statistics {
 		std::string name;
 		int amount;
+		bool is_percent;
+		SDL_Color stat_color;
 	};
 
+	// Data
 	const std::vector<Statistics> character_stats = {
-		{ "Attack", 65 },
-		{ "Defense", 25 },
-		{ "Evasion", 45 },
-		{ "Recovery", 100 }
+		{ "Health", 420, false, SDL_Color({255, 143, 246, 255}) },
+		{ "Attack", 65, false, SDL_Color({255, 143, 143, 255}) },
+		{ "Defense", 25, true, SDL_Color({143, 255, 156, 255}) },
+		{ "Evasion", 45, true, SDL_Color({143, 197, 255, 255}) },
+		{ "Recovery", 100, true, SDL_Color({255, 253, 143, 255}) }
 	};
 
+	// And we render everything from our vector.
 	for (size_t i = 0; i < character_stats.size(); ++i)
 	{
 		UIText* statistic_label = nullptr;
 		UIText* statistic_amount = nullptr;
+		const auto stat = character_stats[i];
+		std::string percent = stat.is_percent ? "%" : "";
 
-		statistic_label = this->create_element<UIText>("character_stat_" + std::to_string(i), UIText(character_stats[i].name));
-		statistic_amount = this->create_element<UIText>("character_stat_amount_" + std::to_string(i), UIText(std::to_string(character_stats[i].amount)));
+		statistic_label = this->create_element<UIText>("character_stat_" + std::to_string(i), UIText(stat.name, stat.stat_color));
+		statistic_amount = this->create_element<UIText>("character_stat_amount_" + std::to_string(i), UIText(std::to_string(stat.amount) + percent));
 
+		// Initial position
 		if (i == 0)
 		{
 			statistic_label->set_position(character_stats_bg->position() + Vector2i(16, 16));
 			statistic_amount->set_position(statistic_label->position() + Vector2i(128 * 3, 0));
 		}
-		else
+		else // Then the rest.
 		{
-			Vector2i previous_item_label_bottom = this->get_element<UIText>("character_stat_" + std::to_string(i - 1))->bottom();
-			Vector2i previous_item_amount_bottom = this->get_element<UIText>("character_stat_amount_" + std::to_string(i - 1))->bottom();
+			const Vector2i previous_item_label_bottom = this->get_element<UIText>("character_stat_" + std::to_string(i - 1))->bottom();
+			const Vector2i previous_item_amount_bottom = this->get_element<UIText>("character_stat_amount_" + std::to_string(i - 1))->bottom();
 
 			statistic_label->set_position(previous_item_label_bottom + Vector2i(0, 16));
 			statistic_amount->set_position(previous_item_amount_bottom + Vector2i(0, 16));
 		}
+
+		// Sets the size of the background by the number of items.
+		character_stats_bg->set_custom_size({ 475, 48 * (static_cast<int>(i) + 1) });
 	}
 }
 
