@@ -47,14 +47,31 @@ void Lilac::Scenes::MainMenu::init_menu_bar()
 	Image* menu_bar_bg = this->create_element<Image>("mm_menu_bar_bg", Image("guis/rect_base"));
 	menu_bar_bg->set_custom_size({ Globals::engine->sdl().workspace_size().x, 64 });
 	menu_bar_bg->set_color({ 0, 0, 0 }, 150);
-	menu_bar_bg->set_position({ 0, top_bar->position().y + top_bar->texture()->data().h });
+	menu_bar_bg->set_position({ 0, top_bar->position().y + top_bar->height() });
 }
 
 void Lilac::Scenes::MainMenu::init_left_menu()
 {
 	Image* menu_left = this->create_element<Image>("mm_menu_left_bg", Image("guis/main_menu/menu_left"));
 	menu_left->set_color(theme_primary_color);
-	menu_left->set_position({ -32, 0 });
+
+	Button* quit_btn = this->create_left_menu_button("quit_game", "guis/main_menu/exit_button");
+	quit_btn->set_animation(Lilac::UI::Button::ButtonAnimation::RightSlide);
+	quit_btn->set_position(
+		{
+			10,
+			Globals::engine->sdl().window_size().y - quit_btn->height() - 10
+		}
+	);
+	quit_btn->set_callback([]() { Globals::engine->quit(); });
+}
+
+Button* Lilac::Scenes::MainMenu::create_left_menu_button(const std::string button_id, const std::string button_texture)
+{
+	Button* btn = this->create_element<Button>(button_id, Button(button_id, button_texture));
+	this->left_menu_btns.push_back(btn);
+
+	return btn;
 }
 
 void Lilac::Scenes::MainMenu::clear_left_menu_buttons()
@@ -64,6 +81,10 @@ void Lilac::Scenes::MainMenu::clear_left_menu_buttons()
 		const std::string btn_id = button->id();
 		this->remove_element(btn_id);
 	}
+}
+
+void Lilac::Scenes::MainMenu::_set_button_tooltip(const std::string text)
+{
 }
 
 void Lilac::Scenes::MainMenu::update(const float dt)

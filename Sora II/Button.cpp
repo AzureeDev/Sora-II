@@ -5,8 +5,13 @@ Lilac::UI::Button::Button(std::string button_id, std::string button_texture_path
 {
 	this->button_id = button_id;
 	this->button_texture = Globals::assets->load_texture("UI::BUTTON_" + button_texture_path, button_texture_path);
+
+	this->element_height = this->button_texture->data().h;
+	this->element_width = this->button_texture->data().w;
+
 	this->button_callback = [button_texture_path]() { SDL_Log("No valid callback for the button: %s", button_texture_path.c_str()); };
 	this->button_out_callback = []() {};
+	this->button_on_hover_callback = []() {};
 }
 
 const std::string Lilac::UI::Button::id()
@@ -75,6 +80,8 @@ void Lilac::UI::Button::set_enabled(const bool state)
 void Lilac::UI::Button::set_custom_size(const Vector2i size)
 {
 	this->button_custom_size = size;
+	this->element_height = size.y;
+	this->element_width = size.x;
 }
 
 const bool Lilac::UI::Button::enabled()
