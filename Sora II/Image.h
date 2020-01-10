@@ -41,10 +41,6 @@ namespace Lilac::UI
 		// Flip the texture either vertically or horizontally
 		void set_flip(const SDL_RendererFlip flip);
 		void set_visible(const bool state);
-		const Vector2i top(); // Position at the top of the image
-		const Vector2i bottom(); // Position at the bottom of the image
-		const Vector2i right(); // Position at the right of the image
-		const Vector2i left(); // Position at the left of the image
 		const Vector2i custom_size() const;
 		virtual void render();	
 	};

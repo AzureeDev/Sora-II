@@ -50,6 +50,7 @@ void Lilac::Engine::init_base_assets()
 	Globals::assets->load_font("infini24", "fonts/infini.otf", 24);
 	Globals::assets->load_font("infini32", "fonts/infini.otf", 32);
 	Globals::assets->load_font("infini38", "fonts/infini.otf", 38);
+	Globals::assets->load_font("consola24", "fonts/consola.ttf", 24);
 
 	auto escom24_italic = Globals::assets->load_font("escom24_italic", "fonts/escom.ttf", 24);
 	auto escom48_italic = Globals::assets->load_font("escom48_italic", "fonts/escom.ttf", 48);

@@ -26,6 +26,26 @@ const int Lilac::UI::UIElement::height() const
 	return this->element_height;
 }
 
+const Vector2i Lilac::UI::UIElement::top() const
+{
+	return this->element_position - Vector2i(0, this->element_height);
+}
+
+const Vector2i Lilac::UI::UIElement::bottom() const
+{
+	return this->element_position + Vector2i(0, this->element_height);
+}
+
+const Vector2i Lilac::UI::UIElement::right() const
+{
+	return this->element_position + Vector2i(this->element_width, 0);
+}
+
+const Vector2i Lilac::UI::UIElement::left() const
+{
+	return this->element_position - Vector2i(this->element_width, 0);
+}
+
 void Lilac::UI::UIElement::event(const SDL_Event& event)
 {
 }

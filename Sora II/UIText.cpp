@@ -26,26 +26,6 @@ void Lilac::UI::UIText::set_visible(const bool visible)
 	this->uitext_visible = visible;
 }
 
-const Vector2i Lilac::UI::UIText::top()
-{
-	return this->element_position;
-}
-
-const Vector2i Lilac::UI::UIText::bottom()
-{
-	return this->element_position + Vector2i(0, this->element_height);
-}
-
-const Vector2i Lilac::UI::UIText::right()
-{
-	return this->element_position + Vector2i(this->element_width, 0);
-}
-
-const Vector2i Lilac::UI::UIText::left()
-{
-	return this->element_position;
-}
-
 void Lilac::UI::UIText::render()
 {
 	if (!this->uitext_visible)

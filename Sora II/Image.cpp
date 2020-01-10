@@ -79,28 +79,6 @@ void Lilac::UI::Image::set_visible(const bool state)
 	this->image_visible = state;
 }
 
-const Vector2i Lilac::UI::Image::top()
-{
-	return this->element_position;
-}
-
-const Vector2i Lilac::UI::Image::bottom()
-{
-	const int height = this->image_custom_size.zero() ? this->element_height : this->image_custom_size.y;
-	return this->element_position + Vector2i(0, height);
-}
-
-const Vector2i Lilac::UI::Image::right()
-{
-	const int width = this->image_custom_size.zero() ? this->element_width : this->image_custom_size.x;
-	return this->element_position + Vector2i(width, 0);
-}
-
-const Vector2i Lilac::UI::Image::left()
-{
-	return this->element_position;
-}
-
 const Vector2i Lilac::UI::Image::custom_size() const
 {
 	return this->image_custom_size;

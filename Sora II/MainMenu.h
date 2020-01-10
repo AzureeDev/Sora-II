@@ -12,13 +12,17 @@ namespace Lilac::Scenes
 
 	public:
 		void init();
+	private:
 		void init_world();
 		void init_top_bar();
 		void init_menu_bar();
 		void init_left_menu();
+
+		// Buttons to quit, play ect
+		void create_main_buttons();
+	public:
 		Button* create_left_menu_button(const std::string button_id, const std::string button_texture);
 		void clear_left_menu_buttons();
-		void _set_button_tooltip(const std::string text);
 		void update(const float dt);
 	};
 }
