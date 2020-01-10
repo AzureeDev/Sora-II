@@ -62,6 +62,7 @@ namespace Lilac::UI
 		void set_hovered_callback(const std::function<void()> callback);
 		const Vector2i custom_size();
 		virtual void event(const SDL_Event& event);
+		virtual void update(const float dt);
 		virtual void render();
 	};
 }

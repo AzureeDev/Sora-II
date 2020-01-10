@@ -6,10 +6,12 @@
 
 const SDL_Color theme_primary_color = { 0, 155, 255, 255 };
 const SDL_Color theme_secondary_color = { 0, 155, 255, 255 };
+const std::string menu_message = "Welcome to the project \"Sora II\".";
 
 void Lilac::Scenes::MainMenu::init()
 {
-	MusicManager::play("musics/menu");
+	//MusicManager::play("musics/menu");
+	MusicManager::play_with_repeat("musics/suguv3", 118.418);
 	Globals::engine->set_cursor_state(true);
 
 	this->init_world();
@@ -48,6 +50,14 @@ void Lilac::Scenes::MainMenu::init_menu_bar()
 	menu_bar_bg->set_custom_size({ Globals::engine->sdl().workspace_size().x, 64 });
 	menu_bar_bg->set_color({ 0, 0, 0 }, 150);
 	menu_bar_bg->set_position({ 0, top_bar->position().y + top_bar->height() });
+
+	UIText* menu_message_text = this->create_element<UIText>("menu_message_text", UIText(menu_message));
+	menu_message_text->set_position(
+		{
+			menu_bar_bg->right().x - menu_message_text->width() - 10,
+			menu_bar_bg->right().y + (menu_bar_bg->height() / 2) - menu_message_text->height() / 2
+		}
+	);
 }
 
 void Lilac::Scenes::MainMenu::init_left_menu()
@@ -60,6 +70,8 @@ void Lilac::Scenes::MainMenu::init_left_menu()
 
 void Lilac::Scenes::MainMenu::create_main_buttons()
 {
+	this->clear_left_menu_buttons();
+
 	Button* quit_btn = this->create_left_menu_button("quit_game", "guis/main_menu/exit_button");
 	quit_btn->set_animation(Lilac::UI::Button::ButtonAnimation::RightSlide);
 	quit_btn->set_position(

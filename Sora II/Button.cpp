@@ -148,6 +148,27 @@ void Lilac::UI::Button::event(const SDL_Event& event)
 	}
 }
 
+void Lilac::UI::Button::update(const float dt)
+{
+	if (this->button_anim == ButtonAnimation::RightSlide && this->enabled())
+	{
+		if (this->mouse_inside())
+		{
+			if (this->position().x < this->button_anim_max_x)
+			{
+				this->set_x(this->position().x + 2);
+			}
+		}
+		else
+		{
+			if (this->position().x > this->button_anim_original_x)
+			{
+				this->set_x(this->position().x - 2);
+			}
+		}
+	}
+}
+
 void Lilac::UI::Button::render()
 {
 	if (this->button_texture != nullptr)
@@ -188,24 +209,6 @@ void Lilac::UI::Button::render()
 		{
 			SDL_SetTextureColorMod(this->button_texture->get(), this->button_disabled_color.r, this->button_disabled_color.g, this->button_disabled_color.b);
 			SDL_SetTextureAlphaMod(this->button_texture->get(), this->button_disabled_color.a);
-		}
-
-		if (this->button_anim == ButtonAnimation::RightSlide && this->enabled())
-		{
-			if (this->mouse_inside())
-			{
-				if (this->position().x < this->button_anim_max_x)
-				{
-					this->set_x(this->position().x + 2);
-				}
-			}
-			else
-			{
-				if (this->position().x > this->button_anim_original_x)
-				{
-					this->set_x(this->position().x - 2);
-				}
-			}
 		}
 		
 		SDL_RenderCopy(Globals::engine->sdl().get_renderer(), this->button_texture->get(), NULL, &dest_rect);

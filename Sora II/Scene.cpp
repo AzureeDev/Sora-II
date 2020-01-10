@@ -24,15 +24,26 @@ void Lilac::Scene::init()
 */
 void Lilac::Scene::event(SDL_Event& event)
 {
-	for (auto& ui_element : this->scene_ui_elements)
+	if (!this->paused())
 	{
-		ui_element.ui_element->event(event);
+		for (auto& ui_element : this->scene_ui_elements)
+		{
+			ui_element.ui_element->event(event);
+		}
 	}
 }
 
 void Lilac::Scene::_private_update(const float dt)
 {
 	this->scene_timer += dt;
+
+	if (!this->paused())
+	{
+		for (auto& ui_element : this->scene_ui_elements)
+		{
+			ui_element.ui_element->update(dt);
+		}
+	}
 }
 
 void Lilac::Scene::_set_scene_name(const std::string scene_identifier)

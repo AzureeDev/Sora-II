@@ -31,7 +31,7 @@ namespace Lilac {
 		virtual ~Scene();								// Destructor, put cleanups here
 		virtual void init();							// Executed on scene creation
 		virtual void event(SDL_Event& event);			// Event catcher
-		void _private_update(const float dt);			// Private update, do not use - Scene timer is handled here.
+		void _private_update(const float dt);			// Private update, do not use - Scene timer is handled here, as well as UIElement updates.
 		void _set_scene_name(const std::string scene_identifier); // Private setter to give the scene it's name, if created by SceneManager
 		virtual void update(const float dt);			// Executed each frames, put logic in there
 		virtual void render();							// Executed each frames AFTER logic

@@ -1,17 +1,17 @@
 #include "UIElement.h"
 #include "Globals.h"
 
-void Lilac::UI::UIElement::set_position(Vector2i pos)
+void Lilac::UI::UIElement::set_position(const Vector2i pos)
 {
 	this->element_position = pos;
 }
 
-void Lilac::UI::UIElement::set_x(int x)
+void Lilac::UI::UIElement::set_x(const int x)
 {
 	this->element_position.x = x;
 }
 
-void Lilac::UI::UIElement::set_y(int y)
+void Lilac::UI::UIElement::set_y(const int y)
 {
 	this->element_position.y = y;
 }
@@ -47,5 +47,9 @@ const Vector2i Lilac::UI::UIElement::left() const
 }
 
 void Lilac::UI::UIElement::event(const SDL_Event& event)
+{
+}
+
+void Lilac::UI::UIElement::update(const float dt)
 {
 }
